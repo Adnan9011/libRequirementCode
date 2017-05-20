@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appIntroDefaultPaddingLeft">80dp</dimen>
+    <dimen name="appIntroDefaultPaddingRight">80dp</dimen>
+
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">250dp</dimen>
+
+    <dimen name="text_product">19sp</dimen>
+    <dimen name="text_button">19sp</dimen>
+    <dimen name="text_toolbar_title">22sp</dimen>
+    <dimen name="text_title">21sp</dimen>
+    <dimen name="text_body">19sp</dimen>
+    <dimen name="text_describe">15sp</dimen>
+    <dimen name="text_xpin_des">16sp</dimen>
+    <dimen name="text_xpin_not_exist">23sp</dimen>
+
+
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_between_areas">8dp</dimen>
+
+    <dimen name="toolbar_height">86dp</dimen>
+    <dimen name="toolbar_image_height">38dp</dimen>
+
+    <dimen name="other_cell_news">56dp</dimen>
+    <dimen name="height_cell_news">150dp</dimen>
+    <dimen name="width_cell_news">200dp</dimen>
+    <dimen name="width_heigh_image_contact_us">100dp</dimen>
+    <dimen name="width_text_contact_us">250dp</dimen>
+    <dimen name="heigh_text_contact_us">125dp</dimen>
+    <dimen name="width_heigh_image">35dp</dimen>
+
+    <dimen name="banner_news">450dp</dimen>
+
+    <dimen name="small_padding">16dp</dimen>
+    <dimen name="normall_padding">32dp</dimen>
+
+    <dimen name="custom_dialog_loading_margin">100dp</dimen>
+    <dimen name="custom_dialog_loading_height">150dp</dimen>
+
+    <dimen name="button_height">70dp</dimen>
+
+    <dimen name="protocol_keyboad_height">70dp</dimen>
+
+    <dimen name="xpin_width">150dp</dimen>
+    <dimen name="xpin_height">108dp</dimen>
+
+
+    <dimen name="splash_image_width">160dp</dimen>
+    <dimen name="splash_image_half_width">80dp</dimen>
+
+    <dimen name="splash_image_height">227dp</dimen>
+
+    <dimen name="image_45">60dp</dimen>
+
+</resources>

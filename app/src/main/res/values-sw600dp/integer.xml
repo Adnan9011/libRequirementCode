@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="material_menu_scale">3</integer>
+    <integer name="material_menu_stroke">2</integer>
+
+    <integer name="intro_text_button">18</integer>
+</resources>
