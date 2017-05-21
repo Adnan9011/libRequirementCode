@@ -25,6 +25,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:design:25.0.0'
 
+
     //MaterialDialog
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
 
