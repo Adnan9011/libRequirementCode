@@ -1,3 +1,5 @@
 /build
 /bintray.gradle
 /install.gradle
+bintray.gradle
+install.gradle
