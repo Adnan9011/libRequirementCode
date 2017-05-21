@@ -1,4 +1,4 @@
-package ir.baselibrary.core;
+package ir.adnan.lib_requirement_code.core;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

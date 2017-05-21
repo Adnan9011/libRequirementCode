@@ -1,9 +1,5 @@
-package ir.baselibrary.core;
+package ir.adnan.lib_requirement_code.core;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,18 +9,11 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Vibrator;
 import android.util.Base64;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
+import ir.adnan.lib_requirement_code.data.Preferences;
 import ir.baselibrary.MainActivity;
-import ir.baselibrary.data.Preferences;
 
 /**
  * Created by adnan on 12/3/16.

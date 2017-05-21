@@ -1,11 +1,11 @@
-package ir.baselibrary.view;
+package ir.adnan.lib_requirement_code.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import ir.baselibrary.core.Static;
+import ir.adnan.lib_requirement_code.core.Static;
 
 
 /**

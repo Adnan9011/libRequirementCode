@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1b1b1b</color>
+    <color name="colorPrimaryDark">#0b0b0b</color>
+    <color name="colorAccent">#47bdc9</color>
+    <color name="drawable_transparent">#8047bdc9</color>
+
+    <!--<color name="colorPrimary">#3949AB</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF448AFF</color>-->
+    <!--<color name="drawable_transparent">#80448AFF</color>-->
+
+    <color name="edit_color">#DE000000</color>
+
+    <color name="windowBackground">#0b0b0b</color>
+
+    <!-- Text -->
+    <color name="all_text_color_black">#DE000000</color>
+    <color name="all_text_color_white">#FFFFFFFF</color>
+    <color name="all_text_color_black_secondary">#89000000</color>
+    <color name="all_text_color_white_secondary">#B3FFFFFF</color>
+    <color name="all_text_color_black_hint">#61000000</color>
+    <color name="all_text_color_white_hint">#80FFFFFF</color>
+    <color name="all_text_color_black_divider">#1E000000</color>
+    <color name="all_text_color_white_divider">#1EFFFFFF</color>
+
+    <!-- Button -->
+    <color name="colorAccentTwo">#FF94DAFF</color>
+    <color name="colorAccentPressed">#FF348AEF</color>
+
+    <color name="colorAccentTransparent">#80448AFF</color>
+    <color name="transparent">#01FFFFFF</color>
+
+    <!-- Gift Card -->
+    <color name="amazon">#E56C19</color>
+    <color name="google_play">#1B58B8</color>
+    <color name="itunes">#2C4566</color>
+    <color name="microsoft">#006AC1</color>
+    <color name="play_station">#1F0068</color>
+    <color name="xbox">#004A00</color>
+    <color name="gift_card_default">#569CE3</color>
+
+    <color name="transparent_normal">#D9000000</color>
+
+</resources>

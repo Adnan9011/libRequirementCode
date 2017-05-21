@@ -1,4 +1,4 @@
-package ir.baselibrary.view;
+package ir.adnan.lib_requirement_code.view;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import ir.baselibrary.R;
-import ir.baselibrary.core.Static;
+import ir.adnan.lib_requirement_code.core.Static;
 
 
 /**

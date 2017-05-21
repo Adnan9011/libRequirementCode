@@ -1,6 +1,6 @@
-package ir.baselibrary.core;
+package ir.adnan.lib_requirement_code.core;
 
-import ir.baselibrary.data.Finals;
+import ir.adnan.lib_requirement_code.data.Finals;
 
 /**
  * Created by adnan on 2/21/17.

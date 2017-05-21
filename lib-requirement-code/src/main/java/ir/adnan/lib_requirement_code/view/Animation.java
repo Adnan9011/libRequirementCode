@@ -1,4 +1,4 @@
-package ir.baselibrary.view;
+package ir.adnan.lib_requirement_code.view;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

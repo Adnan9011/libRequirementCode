@@ -1,4 +1,4 @@
-package ir.baselibrary.view;
+package ir.adnan.lib_requirement_code.view;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import ir.baselibrary.R;
-import ir.baselibrary.core.Static;
+import ir.adnan.lib_requirement_code.core.Static;
 
 /**
  * Created by adnan on 12/5/16.

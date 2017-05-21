@@ -1,4 +1,4 @@
-package ir.baselibrary.core;
+package ir.adnan.lib_requirement_code.core;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,7 +6,7 @@ import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.View;
 
-import ir.baselibrary.view.SnackBar;
+import ir.adnan.lib_requirement_code.view.SnackBar;
 
 /**
  * Created by adnan on 12/12/16.
