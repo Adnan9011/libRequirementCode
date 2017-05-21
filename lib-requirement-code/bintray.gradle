@@ -1,0 +1,44 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = '0.0.2' //YOUR LIBRARY VERSION
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStreamtray())
+
+bintray {
+
+    user = "adnan9011"//properties.getProperty("bintray.user")
+    key = "4729d75ae13d5b4b2af018233f76f834a73d2ff2"//properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'lib-requirement-code' //YOUR PACKAGE NAME
+        desc = 'A collections of methods to work with project' // YOUR LIBRARY DESCRIPTION
+        websiteUrl = 'https://github.com/Adnan9011/libRequirementCode' // YOUR SITE
+        vcsUrl = 'https://github.com/Adnan9011/libRequirementCode.git' // YOUR GIT REPO
+        licenses = ["Apache-2.0"] // A LIST OF YOUR LICENCES
+        publish = true
+        publicDownloadNumbers = true
+    }
+}

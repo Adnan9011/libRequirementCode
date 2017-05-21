@@ -1,50 +1,9 @@
 <resources>
 
-    <string name="package_name">ir.altontech.simpin</string>
-
-    <string name="app_name">SimPin</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="navigation_drawer_open">Open Navigation Drawer</string>
-    <string name="navigation_drawer_close">Close Navigation Drawer</string>
-
-    <string name="app_name_in_server">simpin</string>
-    <string name="project_name">interface</string>
-
     <string name="retrofit_onfailure">امکان برقراری ارتباط با سرور وجود ندارد</string>
 
-    <string name="dialog_title_update_availabe">نسخه جدید سیم پین آماده دریافت است. آیا مایل به به روز رسانی هستید؟</string>
-    <string name="dialog_title_update_force">متاسفانه بدون به روزرسانی، امکان استفاده از اپلیکیشن وجود ندارد. آیا مایل به به روز رسانی هستید؟</string>
-    <string name="simgame_mail">simpay@altontech.ir</string>
-    <string name="loading">سیم پین</string>
     <string name="retry_network">امکان برقراری ارتباط با سرور وجود ندارد</string>
-    <string name="dialog_shoulde_signin_for_continue" >شما ثبت نام نیستید . برای ادامه و استفاده از تمام امکانات برنامه لطفا ثبت نام کنید .</string>
     <string name="snackbar_submit_description">تغییرات با موفقیت ثبت شد</string>
     <string name="snackbar_faild_product_hints_link">راهنمایی در مورد این محصولات وجود ندارد</string>
-    <string name="fragment_aboutus_description">در این اپلیکیشن میتوانید طیف گسترده ای از گیف کارت ها را تهیه کنید . تنوع محصولات در سیم پین همواره در حال گسترش است و در تلاشیم که بهترین محصولات , خدمات و سرویس هارا برای شما مشتریان عزیز سیم پین فراهم کنیم .</string>
-    <string name="alton_insta" >https://www.instagram.com/altontech.ir/</string>
-    <string name="alton_telegram">http://telegram.me/altontech</string>
-    <string name="alton_site" >http://altontech.ir/</string>
-
-    <string name="toolbar_title_product"></string>
-    <string name="toolbar_title_subproduct">گیفت کارت</string>
-    <string name="toolbar_title_history">سوابق خرید</string>
-    <string name="toolbar_title_sale_payment">جزئیات پرداخت</string>
-
-    <string name="toolbar_title_aboutus">درباره ما</string>
-    <string name="toolbar_title_contactus">تماس با ما</string>
-    <string name="toolbar_title_profile">اطلاعات کاربری</string>
-
-    <string name="business_name">ePay</string>
-    <string name="username">epayApplication</string>
-    <string name="password">\u0040simcut@1234!ApP</string>
-
-    <string name="sender_id">679158626651</string><!-- epay -->
-
-    <string name="default_color">#00BCD4</string>
-    <string name="default_icon">ic_download</string>
-    <string name="default_sound"></string>
-
-    <string name="default_service">.gcm.GCMService</string>
 
 </resources>

@@ -31,15 +31,6 @@
     <color name="colorAccentTransparent">#80448AFF</color>
     <color name="transparent">#01FFFFFF</color>
 
-    <!-- Gift Card -->
-    <color name="amazon">#E56C19</color>
-    <color name="google_play">#1B58B8</color>
-    <color name="itunes">#2C4566</color>
-    <color name="microsoft">#006AC1</color>
-    <color name="play_station">#1F0068</color>
-    <color name="xbox">#004A00</color>
-    <color name="gift_card_default">#569CE3</color>
-
     <color name="transparent_normal">#D9000000</color>
 
 </resources>

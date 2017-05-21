@@ -2,9 +2,5 @@
 <resources>
     <integer name="view_button_keyboard">75</integer>
 
-
-    <integer name="material_menu_scale">2</integer>
-    <integer name="material_menu_stroke">2</integer>
-
     <integer name="intro_text_button">15</integer>
 </resources>

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import ir.baselibrary.R;
+import ir.adnan.lib_requirement_code.R;
 import ir.adnan.lib_requirement_code.core.Static;
 
 /**
