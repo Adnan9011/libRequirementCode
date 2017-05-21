@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+/lib-requirement-code/build
+/lib-requirement-code/bintray.gradle
+/lib-requirement-code/install.gradle
