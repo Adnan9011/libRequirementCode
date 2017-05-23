@@ -1,5 +1,6 @@
 apply plugin: 'com.github.dcendents.android-maven'
 
+
 group = 'ir.adnan9011.library' // CREATE A GROUP ID FOR YOUR LIBRARY
 
 install {
