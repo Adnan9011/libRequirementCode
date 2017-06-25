@@ -35,7 +35,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    compile project(':lib-requirement-code')
-    compile 'ir.adnan9011.library:lib-requirement-code:0.0.2'
+    compile project(':lib-requirement-code')
+//    compile 'ir.adnan9011.library:lib-requirement-code:0.0.2'
 
 }

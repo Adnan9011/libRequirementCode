@@ -23,7 +23,6 @@ public class Animation {
         YoYo.with(techniques)
                 .duration(durationSecound * 1000)
                 .playOn(view);
-
     }
 
     //
