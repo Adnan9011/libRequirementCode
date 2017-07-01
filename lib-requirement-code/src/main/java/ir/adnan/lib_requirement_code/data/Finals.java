@@ -5,4 +5,6 @@ package ir.adnan.lib_requirement_code.data;
  */
 public class Finals {
     public static boolean isDebuggable = true;
+
+    public int DRAWER_CLOSE_DURATION = 250;
 }

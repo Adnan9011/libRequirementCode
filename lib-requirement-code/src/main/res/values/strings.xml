@@ -5,5 +5,6 @@
     <string name="retry_network">امکان برقراری ارتباط با سرور وجود ندارد</string>
     <string name="snackbar_submit_description">تغییرات با موفقیت ثبت شد</string>
     <string name="snackbar_faild_product_hints_link">راهنمایی در مورد این محصولات وجود ندارد</string>
+    <string name="onback_press_for_exit">"برای خروج یکبار دیگر دکمه بازگشت را لمس کنید."</string>
 
 </resources>

@@ -16,15 +16,79 @@ public class Preferences {
     public static boolean isPrefsVibreteSetting(Context context) {
         SharedPreferences settings = context.getSharedPreferences(
                 SHARED_PREFERENCES_ROOT, 0);
-        return settings.getBoolean("music_setting", true);
+        return settings.getBoolean("vibrate", true);
     }
     public static void setPrefsVibrateSetting(Context context, boolean vibrate) {
         SharedPreferences settings = context.getSharedPreferences(
                 SHARED_PREFERENCES_ROOT, 0);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("music_setting", vibrate);
+        editor.putBoolean("vibrate", vibrate);
 
         editor.commit();
     }
 
+    /*
+     * String
+     */
+    public static String getPrefsString(Context context , String type) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        return settings.getString(type, "");
+    }
+    public static void setPrefsString(Context context, String type , String value ) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(type, value);
+
+        editor.commit();
+    }
+
+    /*
+     * int
+     */
+    public static int getPrefsIntDefaultZero(Context context , String type) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        return settings.getInt(type, 0);
+    }
+
+    public static int getPrefsIntDefaultOne(Context context , String type) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        return settings.getInt(type, 1);
+    }
+
+    public static void setPrefsInt(Context context, String type, int value) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt(type, value);
+
+        editor.commit();
+    }
+
+    /*
+     * Boolean
+     */
+    public static boolean isPrefsBooleanDefaultTrue(Context context , String type) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        return settings.getBoolean(type, true);
+    }
+
+    public static boolean isPrefsBooleanDefaultFalse(Context context , String type) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        return settings.getBoolean(type, false);
+    }
+
+    public static void setPrefsBoolean(Context context, String type, boolean value) {
+        SharedPreferences settings = context.getSharedPreferences(
+                SHARED_PREFERENCES_ROOT, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(type, value);
+
+        editor.commit();
+    }
 }

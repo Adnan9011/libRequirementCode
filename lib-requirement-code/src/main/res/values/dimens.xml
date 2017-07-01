@@ -14,8 +14,6 @@
     <dimen name="text_title">17sp</dimen>
     <dimen name="text_body">15sp</dimen>
     <dimen name="text_describe">11sp</dimen>
-    <dimen name="text_xpin_des">12sp</dimen>
-    <dimen name="text_xpin_not_exist">17sp</dimen>
 
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="margin_between_areas">8dp</dimen>
@@ -42,17 +40,6 @@
     <dimen name="custom_dialog_loading_height">100dp</dimen>
 
     <dimen name="button_height">50dp</dimen>
-
-    <dimen name="protocol_keyboad_height">50dp</dimen>
-
-    <dimen name="xpin_width">100dp</dimen>
-    <dimen name="xpin_height">75dp</dimen>
-
-    <dimen name="splash_image_width">120dp</dimen>
-    <dimen name="splash_image_half_width">60dp</dimen>
-    <dimen name="splash_image_height">170dp</dimen>
-
-    <dimen name="image_45">45dp</dimen>
 
     <dimen name="intro_button">19sp</dimen>
     <dimen name="intro_title">22sp</dimen>
