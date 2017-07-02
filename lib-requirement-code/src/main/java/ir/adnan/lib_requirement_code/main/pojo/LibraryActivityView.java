@@ -1,14 +1,13 @@
-package ir.adnan.lib_requirement_code.view.pojo;
+package ir.adnan.lib_requirement_code.main.pojo;
 
 import android.app.Activity;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.support.v7.widget.Toolbar;
 
-import ir.adnan.lib_requirement_code.view.AltonTextView;
+import ir.adnan.lib_requirement_code.view.LibraryTextView;
 
 /**
  * Created by Adnan on 6/28/2017.
@@ -21,7 +20,7 @@ public class LibraryActivityView {
 
     //View Toolbar
     private Toolbar toolbar;
-    private AltonTextView toolbarTitle;
+    private LibraryTextView toolbarTitle;
     private LinearLayout imageNavigation;
     private DrawerLayout drawer;
     //Layout
@@ -43,9 +42,9 @@ public class LibraryActivityView {
     }
     //
     public void setToolbarTitle (int idToolbarTitle) {
-        toolbarTitle = (AltonTextView) activity.findViewById(idToolbarTitle);
+        toolbarTitle = (LibraryTextView) activity.findViewById(idToolbarTitle);
     }
-    public AltonTextView getToolbarTitle () {
+    public LibraryTextView getToolbarTitle () {
         return toolbarTitle;
     }
     //

@@ -56,7 +56,7 @@
 
             </LinearLayout>
 
-            <ir.adnan.lib_requirement_code.view.AltonTextView
+            <ir.adnan.lib_requirement_code.view.LibraryTextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_activity_retry_network" />
 
-                <ir.adnan.lib_requirement_code.view.AltonTextView
+                <ir.adnan.lib_requirement_code.view.LibraryTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 

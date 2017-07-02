@@ -3,19 +3,10 @@ package ir.baselibrary;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.os.Handler;
 
-import ir.adnan.lib_requirement_code.core.Log;
-import ir.adnan.lib_requirement_code.core.Require;
 import ir.adnan.lib_requirement_code.core.Static;
-import ir.adnan.lib_requirement_code.view.AltonTextView;
-import ir.adnan.lib_requirement_code.view.LibraryActivity;
-import ir.adnan.lib_requirement_code.view.pojo.LibraryActivityView;
+import ir.adnan.lib_requirement_code.main.LibraryActivity;
 
 public class MainActivity extends LibraryActivity {
 
@@ -36,6 +27,7 @@ public class MainActivity extends LibraryActivity {
 
         setContentView(R.layout.main_activity);
 
+        launchPushe(THIS);
         launchFirebaseAnalytics(THIS);
         setView(THIS_ACTIVITY , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION
                                 , ID_DRAWER , ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
@@ -45,6 +37,14 @@ public class MainActivity extends LibraryActivity {
          */
         testRetrofit();
         testSnackBar();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                forceCrash();
+            }
+        },2000);
+
     }
 
     private void testSnackBar() {
@@ -52,5 +52,9 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testRetrofit() {
+    }
+
+    private void forceCrash() {
+        int x = 10/0;
     }
 }

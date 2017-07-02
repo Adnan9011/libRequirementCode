@@ -1,5 +1,14 @@
 apply plugin: 'com.android.library'
 
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+dependencies {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -35,6 +44,9 @@ android {
         mavenLocal()
         mavenCentral()
         maven { url "https://jitpack.io" }
+
+        //Fabric
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 
@@ -63,9 +75,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:9.0.2'
     //EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
-
 }
 apply plugin: 'com.google.gms.google-services'
 
 apply from: 'install.gradle'
 apply from: 'bintray.gradle'
+
+apply plugin: 'io.fabric'

@@ -1,4 +1,4 @@
-package ir.adnan.lib_requirement_code.view;
+package ir.adnan.lib_requirement_code.main;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -8,20 +8,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import co.ronash.pushe.Pushe;
+import io.fabric.sdk.android.Fabric;
 import ir.adnan.lib_requirement_code.R;
 import ir.adnan.lib_requirement_code.core.Static;
-import ir.adnan.lib_requirement_code.view.pojo.LibraryActivityView;
+import ir.adnan.lib_requirement_code.view.SnackBar;
+import ir.adnan.lib_requirement_code.main.pojo.LibraryActivityView;
 
 /**
  * Created by Adnan on 6/25/2017.
@@ -43,8 +41,10 @@ public class LibraryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
-        Pushe.initialize(this,true);
+    protected void launchPushe (Context context) {
+        Pushe.initialize(context,true);
     }
 
     protected void launchFirebaseAnalytics (Context context) {

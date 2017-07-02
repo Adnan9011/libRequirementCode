@@ -20,7 +20,7 @@ public class DialogProgressAsync {
     private Context context;
     private MaterialDialog dialogLoading;
 
-    private AltonTextView title;
+    private LibraryTextView title;
     private AVLoadingIndicatorView progress;
 
 //    public static DialogProgressAsync getInstance(Context context) {
@@ -49,7 +49,7 @@ public class DialogProgressAsync {
                 .build()
         ;
 
-        title = (AltonTextView) dialogLoading.findViewById(R.id.progressBarTitle);
+        title = (LibraryTextView) dialogLoading.findViewById(R.id.progressBarTitle);
         title.setTypeface(Static.getMainTypefaceBold(context));
 
         progress = (AVLoadingIndicatorView) dialogLoading.findViewById(R.id.progressBar);
