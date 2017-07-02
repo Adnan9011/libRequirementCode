@@ -37,13 +37,8 @@ public class MainActivity extends LibraryActivity {
          */
         testRetrofit();
         testSnackBar();
+//        forceCrash();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                forceCrash();
-            }
-        },2000);
 
     }
 

@@ -1,5 +1,6 @@
 package ir.baselibrary;
 
+import ir.adnan.lib_requirement_code.data.Finals;
 import ir.adnan.lib_requirement_code.main.LibraryApplication;
 
 /**
@@ -11,6 +12,6 @@ public class MainApplication extends LibraryApplication {
     public void onCreate() {
         super.onCreate();
 
-        launchFabricCrashlytics(this);
+        launchFabricCrashlytics(this , Finals.isDebuggable);
     }
 }

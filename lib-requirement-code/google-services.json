@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "376978204158",
+    "firebase_url": "https://adnan-f4ef2.firebaseio.com",
+    "project_id": "adnan-f4ef2",
+    "storage_bucket": "adnan-f4ef2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376978204158:android:30840acbd7643f41",
+        "android_client_info": {
+          "package_name": "ir.adnan.lib_requirement_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376978204158-98gsmbbt2jcc9m3tbfrcgajipn39mgbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkfeik9iKm_xjZ55yojq_O-cgiUtmIlyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
