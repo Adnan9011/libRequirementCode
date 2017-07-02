@@ -2,11 +2,13 @@ package ir.baselibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import ir.adnan.lib_requirement_code.core.Static;
 import ir.adnan.lib_requirement_code.main.LibraryActivity;
+import ir.baselibrary.test.TestActivity;
 
 public class MainActivity extends LibraryActivity {
 
@@ -38,8 +40,7 @@ public class MainActivity extends LibraryActivity {
         testRetrofit();
         testSnackBar();
 //        forceCrash();
-
-
+        testStartTestActivity();
     }
 
     private void testSnackBar() {
@@ -51,5 +52,14 @@ public class MainActivity extends LibraryActivity {
 
     private void forceCrash() {
         int x = 10/0;
+    }
+
+    private void testStartTestActivity() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(THIS , TestActivity.class));
+            }
+        } , 2500);
     }
 }
