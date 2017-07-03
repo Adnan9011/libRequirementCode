@@ -76,12 +76,12 @@
         </receiver>
 
         <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_291105597001"/>
-        <meta-data android:name="co.ronash.pushe.cr" android:value="aHR0cDovLzYyMDhkMDQ4NDA3NzQwOGE5YTMwOGJhNTQ3YjIzNzZkOjQ3ZGI3MmE3MmNjMTRjNWI5NzIwYzEzNjVkODU4NmVlQGNhLnB1c2hlLmlyLzg5MzU="/>
+        <meta-data android:name="co.ronash.pushe.cr" android:value="YOUR_VALUE"/>
 
         <!-- FABRIC -->
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="68f68a8ed35a6bdf7954ace4666bcb3f1e0e5677"
+            android:value="YOUR_VALUE"
             />
 
     </application>
