@@ -43,7 +43,7 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testSnackBar() {
-        Static.snackbarWithAction(THIS , libraryActivityView.getCoordinateLayout() , "تست اسنک بار با اکشن");
+        Static.snackbarWithAction(THIS , libraryActivityView.getCoordinateLayout() , "تست اسنک بار با اکشن ");
     }
 
     private void testRetrofit() {
