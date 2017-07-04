@@ -41,4 +41,7 @@
 
     <dimen name="button_height">70dp</dimen>
 
+    <dimen name="vas_dialog_cancel">24dp</dimen>
+
+
 </resources>

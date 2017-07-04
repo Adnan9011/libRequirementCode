@@ -33,14 +33,13 @@ public class MainActivity extends LibraryActivity {
         launchFirebaseAnalytics(THIS);
         setView(THIS_ACTIVITY , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION
                                 , ID_DRAWER , ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
-
         /*
          Write Your Code
          */
         testRetrofit();
         testSnackBar();
 //        forceCrash();
-        testStartTestActivity();
+//        testStartTestActivity();
     }
 
     private void testSnackBar() {
@@ -55,11 +54,6 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testStartTestActivity() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(THIS , TestActivity.class));
-            }
-        } , 2500);
+
     }
 }

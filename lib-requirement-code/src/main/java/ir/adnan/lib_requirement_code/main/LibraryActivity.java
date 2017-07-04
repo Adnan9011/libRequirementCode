@@ -11,15 +11,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import co.ronash.pushe.Pushe;
-import io.fabric.sdk.android.Fabric;
 import ir.adnan.lib_requirement_code.R;
 import ir.adnan.lib_requirement_code.core.Static;
-import ir.adnan.lib_requirement_code.view.SnackBar;
+import ir.adnan.lib_requirement_code.data.Finals;
 import ir.adnan.lib_requirement_code.main.pojo.LibraryActivityView;
+import ir.adnan.lib_requirement_code.view.DialogProgressAsync;
+import ir.adnan.lib_requirement_code.view.SnackBar;
 
 /**
  * Created by Adnan on 6/25/2017.
@@ -36,25 +36,29 @@ public class LibraryActivity extends AppCompatActivity {
     protected boolean doubleBackToExitPressedOnce = false;
 
     //Pojo
-    protected LibraryActivityView libraryActivityView ;
+    protected LibraryActivityView libraryActivityView;
+
+    //Progress
+    private DialogProgressAsync dialogLoading;
+    private long dialogLoadingTimeBegin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    protected void launchPushe (Context context) {
-        Pushe.initialize(context,true);
+    protected void launchPushe(Context context) {
+        Pushe.initialize(context, true);
     }
 
-    protected void launchFirebaseAnalytics (Context context) {
+    protected void launchFirebaseAnalytics(Context context) {
         //Firebase
         firebaseAnalytics = FirebaseAnalytics.getInstance(context);
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);
     }
 
-    protected void setView(Activity activity , int idToolbar , int idToolbarTitle , int idImageNavigation
-                                            , final int idDrawer , int idRetryNetwork , int idCoordinateLayout) {
+    protected void setView(Activity activity, int idToolbar, int idToolbarTitle, int idImageNavigation
+            , final int idDrawer, int idRetryNetwork, int idCoordinateLayout) {
 
         //Library Activity View --> parameter : activity
         libraryActivityView = new LibraryActivityView(activity);
@@ -158,8 +162,60 @@ public class LibraryActivity extends AppCompatActivity {
 
     private void closeDrawer() {
         libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
-//        materialMenuView.animateIconState(MaterialMenuDrawable.IconState.BURGER);
     }
+
+    /*
+     * Loading
+     */
+    public void showProgressBar(Context context) {
+        try {
+            if (dialogLoading == null) {
+                dialogLoading = new DialogProgressAsync(context);
+            }
+            dialogLoading.show();
+            //
+            dialogLoadingTimeBegin = System.currentTimeMillis();
+        } catch (Exception e) {
+        }
+    }
+
+    public void dismissProgressBar() {
+        try {
+            long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
+            //
+            if (remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
+                dialogLoading.dismiss();
+            } else {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            dialogLoading.dismiss();
+                        } catch (Exception e) {
+                        }
+                    }
+                }, Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG - remindDialogLoadingTime);
+            }
+        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
+        }
+    }
+
+    public void showSnackBarAfterDialog(final Context context, final String text) {
+        long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
+        //
+        if (remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
+            Static.snackbarShowTimeLong(context, libraryActivityView.getCoordinateLayout(), text);
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Static.snackbarShowTimeLong(context, libraryActivityView.getCoordinateLayout(), text);
+                }
+            }, Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG - remindDialogLoadingTime);
+        }
+    }
+
 
     @Override
     public void onBackPressed() {

@@ -12,6 +12,7 @@ public class MainApplication extends LibraryApplication {
     public void onCreate() {
         super.onCreate();
 
-        launchFabricCrashlytics(this , Finals.isDebuggable);
+        //Fabric
+//        launchFabricCrashlytics(this , Finals.isDebuggable);
     }
 }

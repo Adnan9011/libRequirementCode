@@ -44,4 +44,6 @@
     <dimen name="intro_button">19sp</dimen>
     <dimen name="intro_title">22sp</dimen>
 
+    <dimen name="vas_dialog_cancel">16dp</dimen>
+
 </resources>

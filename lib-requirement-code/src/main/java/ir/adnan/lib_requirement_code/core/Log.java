@@ -10,7 +10,7 @@ public class Log {
 
     public static void e (String tag , String log) {
         if(Finals.isDebuggable) {
-            android.util.Log.e(tag, log);
+            android.util.Log.e(tag, "\n"+log);
         }
     }
 }

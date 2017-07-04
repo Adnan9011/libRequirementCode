@@ -10,6 +10,8 @@ public class Preferences {
 
     private final static String SHARED_PREFERENCES_ROOT = "MyPrefsRoot";
 
+    public final static String SMS_PUSH_CUSTOM_DATA = "sms_data";
+
     /*
      * Vibrate
      */

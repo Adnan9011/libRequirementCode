@@ -3,23 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ir.baselibrary">
 
-
     <!-- PUSHE -->
     <permission
         android:name="ir.baselibrary.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
     <uses-permission
         android:name="ir.baselibrary.permission.C2D_MESSAGE" />
-    <!-- Optional permissions -->
-    <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-    <uses-sdk
-        tools:overrideLibrary="co.ronash.pushe"
-
-        android:minSdkVersion="15"
-        android:targetSdkVersion="22"
-        />
 
     <application
         android:name=".MainApplication"
@@ -43,12 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".test.TestActivity"
-
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- PUSHE -->
 
@@ -76,8 +59,13 @@
         </receiver>
 
         <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_291105597001"/>
-        <meta-data android:name="co.ronash.pushe.cr" android:value="YOUR_VALUE"/>
+        <meta-data android:name="co.ronash.pushe.cr" android:value="aHR0cDovLzYyMDhkMDQ4NDA3NzQwOGE5YTMwOGJhNTQ3YjIzNzZkOjQ3ZGI3MmE3MmNjMTRjNWI5NzIwYzEzNjVkODU4NmVlQGNhLnB1c2hlLmlyLzg5MzU="/>
 
+        <activity
+            android:name=".test.push.TestClickNotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent"
+            />
         <!-- FABRIC -->
         <meta-data
             android:name="io.fabric.ApiKey"
