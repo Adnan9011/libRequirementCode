@@ -44,15 +44,17 @@ public class DialogImageNotification extends Activity {
             String type = extras.getString(GCMEnum.TYPE.getValue());
             final String title = extras.getString(GCMEnum.KEY_TITLE.getValue());
             final String body = extras.getString(GCMEnum.KEY_BODY.getValue());
-            final String imageUrl = extras.getString(GCMEnum.KEY_IMAGE.getValue());
+            String imageUrl = extras.getString(GCMEnum.KEY_IMAGE.getValue());
             //
-            if(type.equalsIgnoreCase(GCMEnum.IMAGE.getValue())) {
-                loadImageDialog(THIS , title , body , imageUrl);
+            if ("".equalsIgnoreCase(imageUrl)) {
+                imageUrl = "";
             }
+
+            loadImageDialog(THIS, title, body, imageUrl);
         }
     }
 
-    public void loadImageDialog(Context context , String title, final String body , String url) {
+    public void loadImageDialog(Context context, String title, final String body, String url) {
         LibraryTextView titleDialog = (LibraryTextView) findViewById(R.id.dialog_title);
         titleDialog.setText(title);
         titleDialog.setTypeface(Static.getMainTypeface(context), Typeface.BOLD);
@@ -63,24 +65,27 @@ public class DialogImageNotification extends Activity {
         imageView.setVisibility(View.VISIBLE);
         imageView.setAdjustViewBounds(true);
 
-        Log.e(TAG , "url : "+url);
-        Picasso.with(context)
-                .load(url)
+        Log.e(TAG, "url : " + url);
+
+        if (!"".equalsIgnoreCase(url)) {
+            Picasso.with(context)
+                    .load(url)
 //                .resize(120, 60)
-                .into(imageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        Animation fadeOut = new AlphaAnimation(0, 1);
-                        fadeOut.setInterpolator(new AccelerateInterpolator());
-                        fadeOut.setDuration(700);
-                        imageView.startAnimation(fadeOut);
-                    }
+                    .into(imageView, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Animation fadeOut = new AlphaAnimation(0, 1);
+                            fadeOut.setInterpolator(new AccelerateInterpolator());
+                            fadeOut.setDuration(700);
+                            imageView.startAnimation(fadeOut);
+                        }
 
-                    @Override
-                    public void onError() {
+                        @Override
+                        public void onError() {
 
-                    }
-                });
+                        }
+                    });
+        }
 
         Button okButton = (Button) findViewById(R.id.dialog_button_ok);
         okButton.setTypeface(Static.getMainTypeface(context), Typeface.BOLD);

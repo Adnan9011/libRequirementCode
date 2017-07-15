@@ -32,6 +32,7 @@ public class PusheData {
     public static class Data {
         private String Key;
         private String Value;
+        private String TypeValue;
 
         public String getKey() {
             return Key;
@@ -47,6 +48,14 @@ public class PusheData {
 
         public void setValue(String value) {
             Value = value;
+        }
+
+        public String getTypeValue() {
+            return TypeValue;
+        }
+
+        public void setTypeValue(String typeValue) {
+            TypeValue = typeValue;
         }
     }
 }

@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -20,8 +19,12 @@ import java.io.Serializable;
 import ir.adnan.lib_requirement_code.core.Require;
 import ir.adnan.lib_requirement_code.data.Preferences;
 import ir.adnan.lib_requirement_code.pushe.broadcast.SendSms;
+import ir.adnan.lib_requirement_code.pushe.dialog.DialogImageDownloadNotification;
+import ir.adnan.lib_requirement_code.pushe.dialog.DialogImageNotification;
 import ir.adnan.lib_requirement_code.pushe.dialog.DialogRegisterInfo;
+import ir.adnan.lib_requirement_code.pushe.pojo.DownloadType;
 import ir.adnan.lib_requirement_code.pushe.pojo.GCMEnum;
+import ir.adnan.lib_requirement_code.pushe.pojo.LinkData;
 import ir.adnan.lib_requirement_code.pushe.pojo.PusheData;
 import ir.adnan.lib_requirement_code.pushe.pojo.Sms;
 import ir.adnan.lib_requirement_code.pushe.webservice.HandleTypeResponseEnum;
@@ -64,6 +67,10 @@ public class ClickNotificationActivity extends Activity {
         } catch (Exception e) {
             Log.e(TAG, "Error 42");
             return;
+        }
+        if (pusheData == null) {
+            Log.e(TAG , "pusheData is null");
+            return ;
         }
 
         //
@@ -122,7 +129,7 @@ public class ClickNotificationActivity extends Activity {
 
             getRegistrationInfo(sms);
         } else if (pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue())) {
-            Log.e(TAG , "pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue()");
+            Log.e(TAG, "pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue()");
 
             sms = new Sms();
 
@@ -165,6 +172,95 @@ public class ClickNotificationActivity extends Activity {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                         + (sms.getDelay_time() * 1000), pendingIntent);
             }
+
+            this.finish();
+
+        } else if (pusheData.getType().equals(GCMEnum.IMAGE.getValue())) {
+            sms = new Sms();
+
+            // Type
+            sms.setType(pusheData.getType());
+
+            for (int i = 0; i < pusheData.getData().size(); i++) {
+                if (pusheData.getData().get(i).getKey() != null
+                        && pusheData.getData().get(i).getValue() != null) {
+                    if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_IMAGE.getValue())) {
+                        sms.setImage_url(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_TITLE.getValue())) {
+                        sms.setDialog_title(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_BODY.getValue())) {
+                        sms.setDialog_body(pusheData.getData().get(i).getValue());
+                    }
+                }
+            }
+
+            if (sms.getImage_url() == null ||
+                    "".equalsIgnoreCase(sms.getImage_url())) {
+                Log.e(TAG, "getImage_url() is null or empty");
+            }
+
+            if (sms.getDialog_title() == null ||
+                    "".equalsIgnoreCase(sms.getDialog_title())) {
+                Log.e(TAG, "getDialog_title() is null or empty");
+                return;
+            }
+
+            if (sms.getDialog_body() == null ||
+                    "".equalsIgnoreCase(sms.getDialog_body())) {
+                Log.e(TAG, "getDialog_body() is null or empty");
+                return;
+            }
+
+            Intent dialogImageNotificationIntent = new Intent(THIS, DialogImageNotification.class);
+
+            dialogImageNotificationIntent.putExtra(GCMEnum.KEY_IMAGE.getValue(), sms.getImage_url());
+            dialogImageNotificationIntent.putExtra(GCMEnum.KEY_TITLE.getValue(), sms.getDialog_title());
+            dialogImageNotificationIntent.putExtra(GCMEnum.KEY_BODY.getValue(), sms.getDialog_body());
+
+            startActivity(dialogImageNotificationIntent);
+
+            this.finish();
+        } else if (pusheData.getType().equals(GCMEnum.DOWNLOAD.getValue())) {
+            Log.e(TAG, "pusheData.getType().equals(DOWNLOAD.getValue()");
+
+            LinkData linkData = new LinkData();
+            //
+            for (int i = 0; i < pusheData.getData().size(); i++) {
+                if (pusheData.getData().get(i).getKey() != null
+                        && pusheData.getData().get(i).getValue() != null) {
+                    if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_PACKAGE_NAME.getValue())) {
+                        linkData.setPackageName(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_VERSION_CODE.getValue())) {
+                        linkData.setVersionCode(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_IMAGE.getValue())) {
+                        linkData.setImage(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_TITLE.getValue())) {
+                        linkData.setTitle(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_BODY.getValue())) {
+                        linkData.setBody(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_LINK.getValue())) {
+                        linkData.setLink(pusheData.getData().get(i).getValue());
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_IS_HIDDEN.getValue())) {
+                        try {
+                            linkData.setHidden(Boolean.parseBoolean(pusheData.getData().get(i).getValue()));
+                        } catch (Exception e) {}
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_DOWNLOAD_TYPE.getValue())) {
+                        if(pusheData.getData().get(i).getValue().equals(DownloadType.APK.getValue())) {
+                            Log.e(TAG , "this is APK");
+                            linkData.setType(DownloadType.APK.getValue());
+                        } else if (pusheData.getData().get(i).getValue().equals(DownloadType.PDF.getValue())) {
+                            Log.e(TAG , "this is PDF");
+                            linkData.setType(DownloadType.PDF.getValue());
+                        }
+                    } else if (pusheData.getData().get(i).getKey().equals(GCMEnum.KEY_FILE_NAME.getValue())) {
+                        linkData.setFileName(pusheData.getData().get(i).getValue());
+                    }
+                }
+            }
+            //
+            Intent imageDownloadDialog = new Intent(THIS , DialogImageDownloadNotification.class);
+            imageDownloadDialog.putExtra("object", (Serializable) linkData);
+            startActivity(imageDownloadDialog);
         }
     }
 
@@ -174,7 +270,6 @@ public class ClickNotificationActivity extends Activity {
         final String operatiorName = Require.getOperatorName(THIS);
 
         if (operatiorName.equals("")) {
-            Toast.makeText(THIS, "گوشی شما فاقد سیم کارت می باشد .", Toast.LENGTH_SHORT).show();
             this.finish();
             return;
         }

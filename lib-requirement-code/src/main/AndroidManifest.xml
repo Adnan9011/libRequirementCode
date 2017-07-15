@@ -31,6 +31,8 @@
             </intent-filter>
         </service>
 
+        <service android:name=".pushe.service.DownloadService" />
+
         <!-- Dialog -->
         <activity
             android:name=".pushe.dialog.DialogRegisterInfo"
@@ -40,6 +42,12 @@
 
         <activity
             android:name=".pushe.dialog.DialogImageNotification"
+
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+
+        <activity
+            android:name=".pushe.dialog.DialogImageDownloadNotification"
 
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />

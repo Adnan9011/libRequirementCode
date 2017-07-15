@@ -39,7 +39,7 @@ public class MainActivity extends LibraryActivity {
         testRetrofit();
         testSnackBar();
 //        forceCrash();
-//        testStartTestActivity();
+        testStartTestActivity();
     }
 
     private void testSnackBar() {
@@ -54,6 +54,6 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testStartTestActivity() {
-
+        startActivity(new Intent (THIS , TestActivity.class ));
     }
 }

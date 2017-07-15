@@ -6,6 +6,8 @@ package ir.adnan.lib_requirement_code.data;
 public class Finals {
     public static boolean isDebuggable = true;
 
-    public int DRAWER_CLOSE_DURATION = 250;
+    public static int DRAWER_CLOSE_DURATION = 250;
     public static int WAIT_DELAY_SHOWING_PROGRESS_DIALOG = 1500;
+    public static String FOLDER_TEMP_NAME = ".Temp";
+    public static String MESSAGE_PROGRESS = "message_progress";
 }

@@ -73,11 +73,13 @@ public class LibraryActivity extends AppCompatActivity {
         libraryActivityView.getImageNavigation().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryActivityView.setDrawer(idDrawer);
-                if (libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
-                    libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
-                } else {
-                    libraryActivityView.getDrawer().openDrawer(GravityCompat.END);
+                if (idDrawer != 0) {
+                    libraryActivityView.setDrawer(idDrawer);
+                    if (libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
+                        libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
+                    } else {
+                        libraryActivityView.getDrawer().openDrawer(GravityCompat.END);
+                    }
                 }
             }
         });
@@ -161,7 +163,11 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
     private void closeDrawer() {
-        libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
+        try {
+            libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
+        } catch (Exception e) {
+
+        }
     }
 
     /*
@@ -221,7 +227,7 @@ public class LibraryActivity extends AppCompatActivity {
     public void onBackPressed() {
         try {
             if (libraryActivityView.getRetryNetwork().getVisibility() == View.GONE) {
-                if (libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
+                if (libraryActivityView.getDrawer() != null && libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
                     closeDrawer();
                 } else {
 

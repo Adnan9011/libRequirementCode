@@ -12,6 +12,8 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
     }
     buildTypes {
         debug {
@@ -47,6 +49,6 @@ dependencies {
 
     //Test Library
     compile project(':lib-requirement-code')
-//    compile 'ir.adnan9011.library:lib-requirement-code:0.0.4'
+//    compile 'ir.adnan9011.library:lib-requirement-code:0.0.6'
 
 }

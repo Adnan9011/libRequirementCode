@@ -7,4 +7,9 @@
     <string name="snackbar_faild_product_hints_link">راهنمایی در مورد این محصولات وجود ندارد</string>
     <string name="onback_press_for_exit">"برای خروج یکبار دیگر دکمه بازگشت را لمس کنید."</string>
 
+    <string name="download_default_name_application">OnNamed</string>
+
+    <string name="download_dialog_title">در حال دریافت اطلاعات</string>
+    <string name="download_dialog_content">لطفا صبور باشید</string>
+
 </resources>

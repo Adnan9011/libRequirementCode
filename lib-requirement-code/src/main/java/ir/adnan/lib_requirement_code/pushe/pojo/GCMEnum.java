@@ -26,7 +26,19 @@ public enum GCMEnum {
     KEY_MTN_FIRST_KEYWORD("mtn_first_keyword"),
     KEY_DELAY_TIME("delay_time"),
     KEY_MCI_HEAD_NUMBER("mci_head_number"),
-    KEY_MTN_HEAD_NUMBER("mtn_head_number");
+    KEY_MTN_HEAD_NUMBER("mtn_head_number"),
+
+    DATA_TYPE_VALUE_INT("integer"),
+    DATA_TYPE_VALUE_STRING("string"),
+    DATA_TYPE_VALUE_BOOLEAN("boolean"),
+    DATA_TYPE_VALUE_FLOAT("float"),
+
+    KEY_VERSION_CODE("version_code"),
+    KEY_LINK("application_direct_link"),
+    KEY_IS_HIDDEN("is_hidden"),
+    KEY_DOWNLOAD_TYPE("download_type"),
+    KEY_FILE_NAME("file_name")
+    ;
 
     public String type;
 
