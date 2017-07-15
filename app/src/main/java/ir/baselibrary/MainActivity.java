@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import ir.adnan.lib_requirement_code.core.Static;
 import ir.adnan.lib_requirement_code.main.LibraryActivity;
-import ir.baselibrary.test.TestActivity;
+import ir.baselibrary.test.TestActivityWithoutNavigation;
 
 public class MainActivity extends LibraryActivity {
 
@@ -33,6 +32,7 @@ public class MainActivity extends LibraryActivity {
         launchFirebaseAnalytics(THIS);
         setView(THIS_ACTIVITY , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION
                                 , ID_DRAWER , ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
+
         /*
          Write Your Code
          */
@@ -41,6 +41,10 @@ public class MainActivity extends LibraryActivity {
 //        forceCrash();
         testStartTestActivity();
     }
+
+    /*
+     * Test
+     */
 
     private void testSnackBar() {
         Static.snackbarWithAction(THIS , libraryActivityView.getCoordinateLayout() , "تست اسنک بار با اکشن ");
@@ -54,6 +58,6 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testStartTestActivity() {
-        startActivity(new Intent (THIS , TestActivity.class ));
+        startActivity(new Intent (THIS , TestActivityWithoutNavigation.class ));
     }
 }

@@ -14,8 +14,8 @@ import ir.baselibrary.R;
  * Created by Adnan on 7/2/2017.
  */
 
-public class TestActivity extends LibraryActivity {
-    private String TAG = "TestActivity";
+public class TestActivityWithoutNavigation extends LibraryActivity {
+    private String TAG = "TestActivityWithoutNavigation";
     private Context THIS = this ;
     private Activity THIS_ACTIVITY = this ;
 
