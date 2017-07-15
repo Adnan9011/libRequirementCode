@@ -91,7 +91,7 @@ public class DownloadService extends IntentService {
 //            notificationBuilder = new NotificationCompat.Builder(this)
 //                    .setSmallIcon(R.drawable.ic_download)
 //                    .setContentTitle(getBaseContext().getResources().getString(R.string.app_name))
-//                    .setContentText("در حال دریافت فایل")
+//                    .setContentText(getResources().getString(R.string.downloadservice_file_downloding))
 //                    .setContentIntent(
 //                            PendingIntent.
 //                                    getActivity
@@ -172,7 +172,7 @@ public class DownloadService extends IntentService {
 
         sendIntent(download);
 //        notificationBuilder.setProgress(100, download.getProgress(), false);
-//        notificationBuilder.setContentText(download.getProgress() + " %" + " در حال دریافت فایل ");
+//        notificationBuilder.setContentText(download.getProgress() + " %" + getResources().getString(R.string.downloadservice_file_downloding));
 //        notificationManager.notify(0, notificationBuilder.build());
     }
 
@@ -191,7 +191,7 @@ public class DownloadService extends IntentService {
 
         notificationManager.cancel(0);
 //        notificationBuilder.setProgress(0, 0, false);
-//        notificationBuilder.setContentText("فایل دانلود شده است");
+//        notificationBuilder.setContentText(getResources().getString(R.string.downloadservice_file_downloaded));
 //        notificationManager.notify(0, notificationBuilder.build());
 
         moveFileFromTempToDownload();

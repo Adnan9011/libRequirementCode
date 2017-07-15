@@ -12,4 +12,8 @@
     <string name="download_dialog_title">در حال دریافت اطلاعات</string>
     <string name="download_dialog_content">لطفا صبور باشید</string>
 
+    <!-- DownloadService -->
+    <string name="downloadservice_file_downloaded">فایل دانلود شده است</string>
+    <string name="downloadservice_file_downloding">در حال دریافت فایل</string>
+
 </resources>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -22,6 +23,7 @@ public class LibraryActivityView {
     private Toolbar toolbar;
     private LibraryTextView toolbarTitle;
     private LinearLayout imageNavigation;
+    private ImageView toolbarImage;
     private DrawerLayout drawer;
     //Layout
     private RelativeLayout retryNetwork;
@@ -61,6 +63,14 @@ public class LibraryActivityView {
         return this.imageNavigation;
     }
 
+    //
+    public void setToolbarImage (int idToolbarImage) {
+        this.toolbarImage = (ImageView) activity.findViewById(idToolbarImage);
+    }
+
+    public ImageView getToolbarImage () {
+        return this.toolbarImage;
+    }
     //
     public void setDrawer(int idDrawer) {
         if (idDrawer != 0)

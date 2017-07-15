@@ -57,8 +57,8 @@ public class LibraryActivity extends AppCompatActivity {
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);
     }
 
-    protected void setView(Activity activity, int idToolbar, int idToolbarTitle, int idImageNavigation
-            , final int idDrawer, int idRetryNetwork, int idCoordinateLayout) {
+    protected void setView(Activity activity, int idToolbar, int idToolbarTitle, int idImageNavigation , int toolbarImage
+            , final int idDrawer,  int idRetryNetwork, int idCoordinateLayout) {
 
         //Library Activity View --> parameter : activity
         libraryActivityView = new LibraryActivityView(activity);
@@ -67,6 +67,7 @@ public class LibraryActivity extends AppCompatActivity {
         libraryActivityView.setToolbar(idToolbar);
         libraryActivityView.setToolbarTitle(idToolbarTitle);
         libraryActivityView.setImageNavigation(idImageNavigation);
+        libraryActivityView.setToolbarImage(toolbarImage);
         libraryActivityView.setDrawer(idDrawer);
         libraryActivityView.setCoordinateLayout(idCoordinateLayout);
 
@@ -86,6 +87,19 @@ public class LibraryActivity extends AppCompatActivity {
 
         //Retofit
         libraryActivityView.setRetryNetwork(idRetryNetwork);
+    }
+
+    protected void setBackButtonWithListener () {
+        if (libraryActivityView.getToolbarImage() != null) {
+            libraryActivityView.getToolbarImage().setBackgroundResource(R.drawable.md_nav_back);
+
+            libraryActivityView.getToolbarImage().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().popBackStack();
+                }
+            });
+        }
     }
 
     /*
