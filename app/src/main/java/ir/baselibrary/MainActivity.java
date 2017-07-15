@@ -16,6 +16,7 @@ public class MainActivity extends LibraryActivity {
     private Context THIS = this ;
     private Activity THIS_ACTIVITY = this ;
 
+    private static final int ID_FRAGMENT = R.id.fragment;
     private static final int ID_TOOLBAR = R.id.toolbar;
     private static final int ID_TOOLBAR_TITLE = R.id.toolbar_title;
     private static final int ID_IMAGE_NAVIGATION = R.id.toolbar_navigation;
@@ -32,7 +33,7 @@ public class MainActivity extends LibraryActivity {
 
         launchPushe(THIS);
         launchFirebaseAnalytics(THIS);
-        setView(THIS_ACTIVITY , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION , ID_TOOLBAR_IMAGE
+        setView(THIS_ACTIVITY , ID_FRAGMENT , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION , ID_TOOLBAR_IMAGE
                                 , ID_DRAWER , ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
 
         /*

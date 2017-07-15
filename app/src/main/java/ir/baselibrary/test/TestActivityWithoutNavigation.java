@@ -19,11 +19,12 @@ public class TestActivityWithoutNavigation extends LibraryActivity {
     private Context THIS = this ;
     private Activity THIS_ACTIVITY = this ;
 
+    private static final int ID_FRAGMENT = R.id.fragment;
     private static final int ID_TOOLBAR = R.id.toolbar;
     private static final int ID_TOOLBAR_TITLE = R.id.toolbar_title;
     private static final int ID_IMAGE_NAVIGATION = R.id.toolbar_navigation;
     private static final int ID_TOOLBAR_IMAGE = R.id.toolbar_menu;
-    private static final int ID_DRAWER = R.id.drawer_layout;
+    private static final int ID_DRAWER = 0;
     private static final int ID_RETRY_NETWORK = R.id.retry_network;
     private static final int ID_COORDINATE_LAYOUT = R.id.coordinator_layout;
 
@@ -35,8 +36,8 @@ public class TestActivityWithoutNavigation extends LibraryActivity {
 
         launchPushe(THIS);
         launchFirebaseAnalytics(THIS);
-        setView(THIS_ACTIVITY , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION ,ID_TOOLBAR_IMAGE
-                , 0  ,  ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
+        setView(THIS_ACTIVITY , ID_FRAGMENT , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION ,ID_TOOLBAR_IMAGE
+                , ID_DRAWER  ,  ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
 
         setBackButtonWithListener();
 

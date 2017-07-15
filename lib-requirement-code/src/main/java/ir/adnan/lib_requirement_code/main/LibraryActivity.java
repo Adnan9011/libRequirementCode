@@ -57,13 +57,14 @@ public class LibraryActivity extends AppCompatActivity {
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);
     }
 
-    protected void setView(Activity activity, int idToolbar, int idToolbarTitle, int idImageNavigation , int toolbarImage
+    protected void setView(Activity activity, int idFragment , int idToolbar, int idToolbarTitle, int idImageNavigation , int toolbarImage
             , final int idDrawer,  int idRetryNetwork, int idCoordinateLayout) {
 
         //Library Activity View --> parameter : activity
         libraryActivityView = new LibraryActivityView(activity);
 
         //Toolbar
+        libraryActivityView.setFragment(idFragment);
         libraryActivityView.setToolbar(idToolbar);
         libraryActivityView.setToolbarTitle(idToolbarTitle);
         libraryActivityView.setImageNavigation(idImageNavigation);
