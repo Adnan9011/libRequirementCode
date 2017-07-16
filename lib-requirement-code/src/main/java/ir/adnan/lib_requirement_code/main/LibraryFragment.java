@@ -18,4 +18,5 @@ public class LibraryFragment extends Fragment {
                 getActivity().getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
+
 }
