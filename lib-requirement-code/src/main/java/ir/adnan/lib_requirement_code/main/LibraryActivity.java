@@ -288,4 +288,13 @@ public class LibraryActivity extends AppCompatActivity {
 
         }
     }
+
+    // GET && SET
+    public LibraryActivityView getLibraryActivityView() {
+        return libraryActivityView;
+    }
+
+    public void setLibraryActivityView(LibraryActivityView libraryActivityView) {
+        this.libraryActivityView = libraryActivityView;
+    }
 }
