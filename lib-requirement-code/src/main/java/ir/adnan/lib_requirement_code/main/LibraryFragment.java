@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 
 public class LibraryFragment extends Fragment {
 
-    private void hideKeyboardFromFragment() {
+    protected void hideKeyboardFromFragment() {
         InputMethodManager inputManager =
                 (InputMethodManager) getActivity().
                         getSystemService(Context.INPUT_METHOD_SERVICE);
