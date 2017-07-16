@@ -16,4 +16,19 @@
     <string name="downloadservice_file_downloaded">فایل دانلود شده است</string>
     <string name="downloadservice_file_downloding">در حال دریافت فایل</string>
 
+    <string name="jalali_month_0">فروردین</string>
+    <string name="jalali_month_1">اردیبهشت</string>
+    <string name="jalali_month_2">خرداد</string>
+
+    <string name="jalali_month_3">تیر</string>
+    <string name="jalali_month_4">مرداد</string>
+    <string name="jalali_month_5">شهریور</string>
+
+    <string name="jalali_month_6">مهر</string>
+    <string name="jalali_month_7">آبان</string>
+    <string name="jalali_month_8">آذر</string>
+
+    <string name="jalali_month_9">دی</string>
+    <string name="jalali_month_10">بهمن</string>
+    <string name="jalali_month_11">اسفند</string>
 </resources>

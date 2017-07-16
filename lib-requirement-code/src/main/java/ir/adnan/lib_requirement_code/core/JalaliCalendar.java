@@ -4,10 +4,14 @@ package ir.adnan.lib_requirement_code.core;
  * Created by Adnan on 4/23/2017.
  */
 
+import android.content.Context;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import ir.adnan.lib_requirement_code.R;
 
 public class JalaliCalendar extends Calendar {
     public static int gregorianDaysInMonth[] = {31, 28, 31, 30, 31,
@@ -819,6 +823,8 @@ public class JalaliCalendar extends Calendar {
     }
 
     public static class YearMonthDateHourMinute {
+
+        private Context context;
         private int year;
         private int month;
         private int date;
@@ -826,14 +832,9 @@ public class JalaliCalendar extends Calendar {
         private int hour;
         private int minute;
 
-        String monthName[] = {
-                "فروردین","اردیبهشت","خرداد",
-                "تیر","مرداد","شهریور",
-                "مهر","آبان","آذر",
-                "دی","بهمن","اسفند"
-        };
 
         public YearMonthDateHourMinute(int year, int month, int date, int hour, int minute) {
+
             this.year = year;
             this.month = month;
             this.date = date;
@@ -847,7 +848,7 @@ public class JalaliCalendar extends Calendar {
                 minString = "0"+minute;
             else
                 minString = minute+"";
-            return this.date + " " + monthName[month] + " " + hour + ":" + minString;
+            return this.date + " " + month + " " + hour + ":" + minString;
         }
 
         public int getYear() {
