@@ -58,6 +58,7 @@ dependencies {
     //MaterialDialog
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
     //Animation
+
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.android.support:support-compat:25.0.0'
     compile 'com.daimajia.easing:library:2.0@aar'
