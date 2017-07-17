@@ -92,7 +92,7 @@ public class LibraryActivity extends AppCompatActivity {
 
     protected void setBackButtonWithListener () {
         if (libraryActivityView.getToolbarImage() != null) {
-            libraryActivityView.getToolbarImage().setBackgroundResource(R.drawable.md_nav_back);
+            libraryActivityView.getToolbarImage().setBackgroundResource(R.drawable.nav_back);
 
             libraryActivityView.getToolbarImage().setOnClickListener(new View.OnClickListener() {
                 @Override

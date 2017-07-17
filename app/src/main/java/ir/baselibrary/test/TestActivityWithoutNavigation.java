@@ -5,9 +5,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import com.daimajia.androidanimations.library.Techniques;
+
 import ir.adnan.lib_requirement_code.core.Log;
 import ir.adnan.lib_requirement_code.data.Preferences;
 import ir.adnan.lib_requirement_code.main.LibraryActivity;
+import ir.adnan.lib_requirement_code.view.Animation;
 import ir.baselibrary.R;
 
 /**
@@ -40,6 +43,8 @@ public class TestActivityWithoutNavigation extends LibraryActivity {
                 , ID_DRAWER  ,  ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
 
         setBackButtonWithListener();
+
+        Animation.animation(Techniques.Bounce , 2 , findViewById(R.id.toolbar_menu));
 
         /*
          * Write Your Code
