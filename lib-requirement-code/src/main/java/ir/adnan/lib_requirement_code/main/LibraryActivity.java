@@ -76,7 +76,7 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (idDrawer != 0) {
-                    libraryActivityView.setDrawer(idDrawer);
+//                    libraryActivityView.setDrawer(idDrawer);
                     if (libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
                         libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
                     } else {

@@ -42,7 +42,7 @@ public class MainActivity extends LibraryActivity {
         testRetrofit();
         testSnackBar();
 //        forceCrash();
-        testStartTestActivity();
+//        testStartTestActivity();
     }
 
     /*
