@@ -26,7 +26,7 @@
         android:layout_marginRight="15dp"
         />
 
-    <ir.adnan.lib_requirement_code.AltonTextView
+    <ir.adnan.lib_requirement_code.view.LibraryTextView
         android:id="@+id/progressBarTitle"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/custom_dialog_loading_height"
