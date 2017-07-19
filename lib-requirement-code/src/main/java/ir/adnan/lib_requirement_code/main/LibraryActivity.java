@@ -187,14 +187,14 @@ public class LibraryActivity extends AppCompatActivity {
 
     // Drawer
 
-    protected void openDrawer() {
+    public void openDrawer() {
         try {
             if (this.idDrawer != 0)
                 libraryActivityView.getDrawer().openDrawer(GravityCompat.END);
         } catch (Exception e) {
         }    }
 
-    protected void closeDrawer() {
+    public void closeDrawer() {
         try {
             if (this.idDrawer != 0)
                 libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
@@ -202,7 +202,7 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    protected void disableDrawer() {
+    public void disableDrawer() {
         try {
             if (this.idDrawer != 0)
                 libraryActivityView.getDrawer().setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -210,7 +210,7 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    protected void enableDrawer() {
+    public void enableDrawer() {
         try {
             if (this.idDrawer != 0)
                 libraryActivityView.getDrawer().setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
