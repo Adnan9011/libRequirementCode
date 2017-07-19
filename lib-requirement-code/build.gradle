@@ -80,6 +80,9 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:9.4.0'
     //EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
+    //InstaMaterial RecycleView
+    compile 'jp.wasabeef:recyclerview-animators:2.2.5'
+
 }
 apply plugin: 'com.google.gms.google-services'
 
