@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -26,6 +27,9 @@ import ir.adnan.lib_requirement_code.view.SnackBar;
  */
 
 public class LibraryActivity extends AppCompatActivity {
+
+    //Drawer
+    protected int idDrawer = 0;
 
     //Analytic
     private FirebaseAnalytics firebaseAnalytics;
@@ -57,11 +61,14 @@ public class LibraryActivity extends AppCompatActivity {
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);
     }
 
-    protected void setView(Activity activity, int idFragment , int idToolbar, int idToolbarTitle, int idImageNavigation , int toolbarImage
-            , final int idDrawer,  int idRetryNetwork, int idCoordinateLayout) {
+    protected void setView(Activity activity, int idFragment, int idToolbar, int idToolbarTitle, int idImageNavigation, int toolbarImage
+            , final int idDrawer, int idRetryNetwork, int idCoordinateLayout) {
 
         //Library Activity View --> parameter : activity
         libraryActivityView = new LibraryActivityView(activity);
+
+        //Drawer
+        this.idDrawer = idDrawer;
 
         //Toolbar
         libraryActivityView.setFragment(idFragment);
@@ -69,13 +76,14 @@ public class LibraryActivity extends AppCompatActivity {
         libraryActivityView.setToolbarTitle(idToolbarTitle);
         libraryActivityView.setImageNavigation(idImageNavigation);
         libraryActivityView.setToolbarImage(toolbarImage);
-        libraryActivityView.setDrawer(idDrawer);
+        libraryActivityView.setDrawer(this.idDrawer);
         libraryActivityView.setCoordinateLayout(idCoordinateLayout);
 
         libraryActivityView.getImageNavigation().setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                if (idDrawer != 0) {
+                if (LibraryActivity.this.idDrawer != 0) {
 //                    libraryActivityView.setDrawer(idDrawer);
                     if (libraryActivityView.getDrawer().isDrawerOpen(GravityCompat.END)) {
                         libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
@@ -90,7 +98,7 @@ public class LibraryActivity extends AppCompatActivity {
         libraryActivityView.setRetryNetwork(idRetryNetwork);
     }
 
-    protected void setBackButtonWithListener () {
+    protected void setBackButtonWithListener() {
         if (libraryActivityView.getToolbarImage() != null) {
             libraryActivityView.getToolbarImage().setBackgroundResource(R.drawable.nav_back);
 
@@ -177,11 +185,36 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    private void closeDrawer() {
-        try {
-            libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
-        } catch (Exception e) {
+    // Drawer
 
+    protected void openDrawer() {
+        try {
+            if (this.idDrawer != 0)
+                libraryActivityView.getDrawer().openDrawer(GravityCompat.END);
+        } catch (Exception e) {
+        }    }
+
+    protected void closeDrawer() {
+        try {
+            if (this.idDrawer != 0)
+                libraryActivityView.getDrawer().closeDrawer(GravityCompat.END);
+        } catch (Exception e) {
+        }
+    }
+
+    protected void disableDrawer() {
+        try {
+            if (this.idDrawer != 0)
+                libraryActivityView.getDrawer().setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        } catch (Exception e) {
+        }
+    }
+
+    protected void enableDrawer() {
+        try {
+            if (this.idDrawer != 0)
+                libraryActivityView.getDrawer().setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        } catch (Exception e) {
         }
     }
 
