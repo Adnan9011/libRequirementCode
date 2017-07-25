@@ -114,6 +114,19 @@ public class LibraryActivity extends AppCompatActivity {
     /*
      * Fragment
      */
+
+    public void mustKillFragmentExceptMainFragmentAndName(String mainFragment , String nameClassFragment) {
+        int count = getFragmentManager().getBackStackEntryCount() - 1;
+        for (int j = count; j >= 0; j--) {
+            String back = getFragmentManager().getBackStackEntryAt(j).getName();
+
+            if (back.equalsIgnoreCase(mainFragment)) {
+            } else if (back.equalsIgnoreCase(nameClassFragment)) {
+            } else {
+                getFragmentManager().popBackStack();
+            }
+        }
+    }
     public void addFragment(Fragment fragment, boolean isAddtoBackStck) {
 
         fragmentTransaction = getFragmentManager().beginTransaction();
