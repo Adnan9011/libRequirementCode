@@ -2,6 +2,7 @@ package ir.adnan.lib_requirement_code.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -17,17 +18,20 @@ public class LibraryTextView extends TextView {
         super(context);
 
         setTypeface(Static.getMainTypeface(context));
+        setTextColor(Color.parseColor("#000000"));
     }
 
     public LibraryTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         setTypeface(Static.getMainTypeface(context));
+        setTextColor(Color.parseColor("#000000"));
     }
 
     public LibraryTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         setTypeface(Static.getMainTypeface(context));
+        setTextColor(Color.parseColor("#000000"));
     }
 }
