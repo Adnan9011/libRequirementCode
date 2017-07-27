@@ -105,7 +105,25 @@ public class LibraryActivity extends AppCompatActivity {
             libraryActivityView.getToolbarImage().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getFragmentManager().popBackStack();
+                    if (getFragmentManager().getBackStackEntryCount() == 1) {
+
+                        if (doubleBackToExitPressedOnce) {
+                            finish();
+                            return;
+                        }
+
+                        doubleBackToExitPressedOnce = true;
+                        Static.snackbarShowTimeLongExit(LibraryActivity.this, libraryActivityView.getCoordinateLayout(), getResources().getString(R.string.onback_press_for_exit));
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                doubleBackToExitPressedOnce = false;
+                            }
+                        }, 2000);
+                    } else {
+                        getFragmentManager().popBackStack();
+                    }
                 }
             });
         }
