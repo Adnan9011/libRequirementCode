@@ -11,30 +11,30 @@ public class StaticWebService {
      * 1 : Error
      * 2 : not Sign In
      */
-    public static HandleWebservice response (String code) {
-        if("G00000".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.OK);
-        else if("G00002".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.SignOut);
-        else if("G00001".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Main);
+    public static HandleWebservice response (Status status) {
+        if("G00000".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription() ,HandleTypeResponseEnum.OK);
+        else if("G00002".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.SignOut);
+        else if("G00001".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Main);
         //
-        else if("GB0001".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0002".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0004".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0003".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0005".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0007".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
-        else if("GB0014".equalsIgnoreCase(code))
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
+        else if("GB0001".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
+        else if("GB0002".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
+        else if("GB0004".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
+        else if("GB0003".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
+        else if("GB0005".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription() ,HandleTypeResponseEnum.Error);
+        else if("GB0007".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
+        else if("GB0014".equalsIgnoreCase(status.getCode()))
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
         //
         else
-            return new HandleWebservice("" ,HandleTypeResponseEnum.Error);
+            return new HandleWebservice(status.getDescription()  ,HandleTypeResponseEnum.Error);
     }
 }

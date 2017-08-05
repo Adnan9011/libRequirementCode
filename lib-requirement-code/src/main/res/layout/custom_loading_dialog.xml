@@ -17,7 +17,7 @@
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/progressBar"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:indicatorName="BallPulseIndicator"
         app:indicatorColor="@color/colorAccent"
@@ -34,6 +34,8 @@
         android:textSize="@dimen/text_button"
 
         android:gravity="center"
+
+        android:textColor="@color/all_text_color_black"
 
         android:text="در حال اتصال " />
 
