@@ -291,7 +291,7 @@ public class ClickNotificationActivity extends Activity {
                 Log.e(TAG, "GetRegistrationInfoOutput ");
                 try {
 
-                    HandleWebservice handleResponse = StaticWebService.response(response.body().getStatus().getCode());
+                    HandleWebservice handleResponse = StaticWebService.response(response.body().getStatus());
 
                     if (handleResponse.getTypeResponseEnum() == HandleTypeResponseEnum.OK) {
 
