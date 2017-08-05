@@ -49,6 +49,16 @@ public class Animation {
 
         animation.start();
     }
+    public static void translate (View view , int heightOne , int heightTwo , int duration){
+        ObjectAnimator translateY = ObjectAnimator.ofFloat(view, "translationY", heightOne , heightTwo);
+        translateY.setDuration(duration);
+
+        AnimatorSet animation = new AnimatorSet(); //change to false
+        animation.play(translateY);
+        animation.setInterpolator(new DecelerateInterpolator());
+
+        animation.start();
+    }
 
     public static void translateAndFadeIn (View view , int height , int duration ) {
         ObjectAnimator translateY = ObjectAnimator.ofFloat(view, "translationY", height , 0);

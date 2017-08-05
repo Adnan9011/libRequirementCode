@@ -16,7 +16,6 @@
     <dimen name="text_body">17sp</dimen>
     <dimen name="text_describe">13sp</dimen>
 
-
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="margin_between_areas">8dp</dimen>
 
