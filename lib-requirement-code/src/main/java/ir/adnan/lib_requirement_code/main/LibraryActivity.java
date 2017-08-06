@@ -45,6 +45,7 @@ public class LibraryActivity extends AppCompatActivity {
     //Progress
     private DialogProgressAsync dialogLoading;
     private long dialogLoadingTimeBegin;
+    private boolean isLoadedLoadingDialog = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -133,7 +134,7 @@ public class LibraryActivity extends AppCompatActivity {
      * Fragment
      */
 
-    public void mustKillFragmentExceptMainFragmentAndName(String mainFragment , String nameClassFragment) {
+    public void mustKillFragmentExceptMainFragmentAndName(String mainFragment, String nameClassFragment) {
         int count = getFragmentManager().getBackStackEntryCount() - 1;
         for (int j = count; j >= 0; j--) {
             String back = getFragmentManager().getBackStackEntryAt(j).getName();
@@ -145,6 +146,7 @@ public class LibraryActivity extends AppCompatActivity {
             }
         }
     }
+
     public void addFragment(Fragment fragment, boolean isAddtoBackStck) {
 
         fragmentTransaction = getFragmentManager().beginTransaction();
@@ -223,7 +225,8 @@ public class LibraryActivity extends AppCompatActivity {
             if (this.idDrawer != 0)
                 libraryActivityView.getDrawer().openDrawer(GravityCompat.END);
         } catch (Exception e) {
-        }    }
+        }
+    }
 
     public void closeDrawer() {
         try {
@@ -257,15 +260,24 @@ public class LibraryActivity extends AppCompatActivity {
             if (dialogLoading == null) {
                 dialogLoading = new DialogProgressAsync(context);
             }
-            dialogLoading.show();
+
             //
-            dialogLoadingTimeBegin = System.currentTimeMillis();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(!isLoadedLoadingDialog) {
+                        dialogLoading.show();
+                        dialogLoadingTimeBegin = System.currentTimeMillis();
+                    }
+                }
+            }, 700);
         } catch (Exception e) {
         }
     }
 
     public void dismissProgressBar(boolean showDelay) {
         try {
+            isLoadedLoadingDialog = true;
             long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
             //
             if (!showDelay || remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
