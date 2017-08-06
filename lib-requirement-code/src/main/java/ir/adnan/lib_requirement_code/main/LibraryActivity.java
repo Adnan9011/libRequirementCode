@@ -268,7 +268,7 @@ public class LibraryActivity extends AppCompatActivity {
         try {
             long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
             //
-            if (showDelay && remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
+            if (!showDelay || remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
                 dialogLoading.dismiss();
             } else {
                 new Handler().postDelayed(new Runnable() {
