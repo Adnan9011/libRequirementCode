@@ -264,11 +264,11 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    public void dismissProgressBar() {
+    public void dismissProgressBar(boolean showDelay) {
         try {
             long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
             //
-            if (remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
+            if (showDelay && remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
                 dialogLoading.dismiss();
             } else {
                 new Handler().postDelayed(new Runnable() {
