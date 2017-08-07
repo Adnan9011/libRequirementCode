@@ -257,6 +257,8 @@ public class LibraryActivity extends AppCompatActivity {
      */
     public void showProgressBar(Context context) {
         try {
+            isLoadedLoadingDialog = false;
+
             if (dialogLoading == null) {
                 dialogLoading = new DialogProgressAsync(context);
             }
