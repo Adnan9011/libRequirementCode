@@ -270,17 +270,17 @@ public class LibraryActivity extends AppCompatActivity {
                         dialogLoadingTimeBegin = System.currentTimeMillis();
                     }
                 }
-            }, 700);
+            }, Finals.WAIT_LODING_SHOWING_PROGRESS_DIALOG);
         } catch (Exception e) {
         }
     }
 
-    public void dismissProgressBar(boolean showDelay) {
+    public void dismissProgressBar() {
         try {
             isLoadedLoadingDialog = true;
             long remindDialogLoadingTime = System.currentTimeMillis() - dialogLoadingTimeBegin;
             //
-            if (!showDelay || remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
+            if (remindDialogLoadingTime > Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG) {
                 dialogLoading.dismiss();
             } else {
                 new Handler().postDelayed(new Runnable() {
