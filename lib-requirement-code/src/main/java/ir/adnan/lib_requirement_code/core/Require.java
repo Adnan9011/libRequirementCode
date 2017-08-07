@@ -110,7 +110,7 @@ public class Require {
     /*
      * Share Application (APK)
      */
-    public void shareApp(Context context , String nameOfApplication) {
+    public static void shareApp(Context context , String nameOfApplication) {
         try {
             PackageManager pm = context.getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(
