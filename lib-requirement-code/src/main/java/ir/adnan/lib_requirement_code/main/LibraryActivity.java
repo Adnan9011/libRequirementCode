@@ -193,7 +193,7 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    public void replaceFragment(Fragment fragment) {
+    public void replaceFragmentRemoveItSelf(Fragment fragment, boolean removeAllPreviousFragment) {
 
         String backStateName = fragment.getClass().getSimpleName();
         boolean fragmentPopped = getFragmentManager().popBackStackImmediate(backStateName, 0);
@@ -205,6 +205,11 @@ public class LibraryActivity extends AppCompatActivity {
                 getFragmentManager().findFragmentByTag(backStateName) == null) {
             if (!lastFragmentName.equalsIgnoreCase(backStateName)) {
                 fragmentTransaction = getFragmentManager().beginTransaction();
+
+                // Remove Previos :
+                if (removeAllPreviousFragment) {
+                    mustKillFragmentExceptMainFragmentAndName("", "");
+                }
                 fragmentTransaction
                         .setCustomAnimations(
                                 R.animator.enter_from_left,
@@ -216,6 +221,20 @@ public class LibraryActivity extends AppCompatActivity {
                         .commit();
             }
         }
+    }
+
+    public void replaceFragmentSimple(Fragment fragment) {
+
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction
+                .setCustomAnimations(
+                        R.animator.enter_from_left,
+                        R.animator.enter_from_right,
+                        R.animator.pop_to_left,
+                        R.animator.pop_to_right)
+                .replace(libraryActivityView.getFragment(), fragment)
+                .addToBackStack(fragment.getClass().getSimpleName())
+                .commit();
     }
 
     // Drawer
@@ -267,7 +286,7 @@ public class LibraryActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if(!isLoadedLoadingDialog) {
+                    if (!isLoadedLoadingDialog) {
                         dialogLoading.show();
                         dialogLoadingTimeBegin = System.currentTimeMillis();
                     }
