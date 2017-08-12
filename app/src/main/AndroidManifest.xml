@@ -31,12 +31,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".test.MainMaterialRipple" />
         <activity
             android:name=".test.TestActivityWithoutNavigation"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- PUSHE -->
         <receiver android:name="co.ronash.pushe.receiver.UpdateReceiver">

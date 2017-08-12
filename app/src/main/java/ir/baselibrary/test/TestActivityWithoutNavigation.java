@@ -2,15 +2,18 @@ package ir.baselibrary.test;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.daimajia.androidanimations.library.Techniques;
 
 import ir.adnan.lib_requirement_code.core.Log;
 import ir.adnan.lib_requirement_code.data.Preferences;
 import ir.adnan.lib_requirement_code.main.LibraryActivity;
 import ir.adnan.lib_requirement_code.view.Animation;
+import ir.adnan.lib_requirement_code.view.LibraryTextView;
 import ir.baselibrary.R;
 
 /**
@@ -50,6 +53,17 @@ public class TestActivityWithoutNavigation extends LibraryActivity {
          * Write Your Code
          */
         testPreferences();
+
+        LibraryTextView textTest = (LibraryTextView) findViewById(R.id.text_test);
+        textTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG , "Clicked ...");
+            }
+        });
+        MaterialRippleLayout.on(textTest)
+                .rippleColor(Color.BLACK)
+                .create();
 
     }
 

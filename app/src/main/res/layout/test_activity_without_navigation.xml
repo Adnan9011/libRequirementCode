@@ -97,5 +97,13 @@
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
+
+    <ir.adnan.lib_requirement_code.view.LibraryTextView
+        android:id="@+id/text_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#000"
+        android:gravity="center"
+        android:text="Test"/>
 </android.support.design.widget.CoordinatorLayout>
 

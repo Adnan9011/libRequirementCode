@@ -8,6 +8,7 @@ import android.os.Bundle;
 import ir.adnan.lib_requirement_code.core.Log;
 import ir.adnan.lib_requirement_code.core.Static;
 import ir.adnan.lib_requirement_code.main.LibraryActivity;
+import ir.baselibrary.test.MainMaterialRipple;
 import ir.baselibrary.test.TestActivityWithoutNavigation;
 
 public class MainActivity extends LibraryActivity {
@@ -42,7 +43,7 @@ public class MainActivity extends LibraryActivity {
         testRetrofit();
         testSnackBar();
 //        forceCrash();
-//        testStartTestActivity();
+        testStartTestActivity();
     }
 
     /*
@@ -62,6 +63,6 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testStartTestActivity() {
-        startActivity(new Intent (THIS , TestActivityWithoutNavigation.class ));
+        startActivity(new Intent (THIS , MainMaterialRipple.class ));
     }
 }

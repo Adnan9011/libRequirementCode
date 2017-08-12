@@ -50,5 +50,4 @@ dependencies {
     //Test Library
     compile project(':lib-requirement-code')
 //    compile 'ir.adnan9011.library:lib-requirement-code:0.0.7'
-
 }
