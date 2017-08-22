@@ -115,6 +115,7 @@ public class LibraryActivity extends AppCompatActivity {
             }
         });
 
+
         //Retofit
         libraryActivityView.setRetryNetwork(idRetryNetwork);
     }
