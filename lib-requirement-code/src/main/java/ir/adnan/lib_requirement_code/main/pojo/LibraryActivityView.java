@@ -29,6 +29,9 @@ public class LibraryActivityView {
     private RelativeLayout retryNetwork;
     private View coordinateLayout;
 
+    //Advanced Layout
+    private ImageView imageViewimageNavigation;
+
     private int idFragment;
 
     //
@@ -108,4 +111,10 @@ public class LibraryActivityView {
         return this.retryNetwork;
     }
     //
+    public void setImageViewimageNavigation (int idImageViewImageNavigation) {
+        this.imageViewimageNavigation = (ImageView) activity.findViewById(idImageViewImageNavigation);
+    }
+    public ImageView getImageViewimageNavigation() {
+        return imageViewimageNavigation;
+    }
 }

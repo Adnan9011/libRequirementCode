@@ -65,6 +65,21 @@ public class LibraryActivity extends AppCompatActivity {
     protected void setView(Activity activity, int idFragment, int idToolbar, int idToolbarTitle, int idImageNavigation, int toolbarImage
             , final int idDrawer, int idRetryNetwork, int idCoordinateLayout) {
 
+        setViewBase(activity, idFragment, idToolbar, idToolbarTitle, idImageNavigation, toolbarImage
+            , idDrawer, idRetryNetwork, idCoordinateLayout , 0);
+    }
+
+    protected void setView(Activity activity, int idFragment, int idToolbar, int idToolbarTitle, int idImageNavigation, int toolbarImage
+            , final int idDrawer, int idRetryNetwork, int idCoordinateLayout , int idImageViewImageNavigation) {
+
+        setViewBase(activity, idFragment, idToolbar, idToolbarTitle, idImageNavigation, toolbarImage
+                , idDrawer, idRetryNetwork, idCoordinateLayout , idImageViewImageNavigation);
+    }
+
+    private void setViewBase(Activity activity, int idFragment, int idToolbar, int idToolbarTitle, int idImageNavigation, int toolbarImage
+            , final int idDrawer, int idRetryNetwork, int idCoordinateLayout ,
+                             int idImageViewImageNavigation) {
+
         //Library Activity View --> parameter : activity
         libraryActivityView = new LibraryActivityView(activity);
 
@@ -79,6 +94,10 @@ public class LibraryActivity extends AppCompatActivity {
         libraryActivityView.setToolbarImage(toolbarImage);
         libraryActivityView.setDrawer(this.idDrawer);
         libraryActivityView.setCoordinateLayout(idCoordinateLayout);
+
+        if(idImageViewImageNavigation != 0) {
+            libraryActivityView.setImageViewimageNavigation(idImageViewImageNavigation);
+        }
 
         libraryActivityView.getImageNavigation().setOnClickListener(new View.OnClickListener() {
 

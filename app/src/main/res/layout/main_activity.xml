@@ -80,18 +80,6 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:background="@drawable/menu" />
-                <!--<com.balysv.materialmenu.MaterialMenuView-->
-                <!--android:id="@+id/toolbar_menu"-->
-                <!--android:layout_width="@dimen/toolbar_height"-->
-                <!--android:layout_height="@dimen/toolbar_height"-->
-                <!--android:layout_marginRight="8dp"-->
-                <!--android:layout_marginLeft="8dp"-->
-
-                <!--app:mm_iconState="burger"-->
-                <!--app:mm_strokeWidth="@integer/material_menu_stroke"-->
-                <!--app:mm_color="#ffffffff"-->
-                <!--app:mm_transformDuration="500"-->
-                <!--app:mm_scale="@integer/material_menu_scale"/>-->
             </LinearLayout>
 
         </LinearLayout>
