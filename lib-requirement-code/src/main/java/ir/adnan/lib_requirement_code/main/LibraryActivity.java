@@ -99,6 +99,7 @@ public class LibraryActivity extends AppCompatActivity {
             libraryActivityView.setImageViewimageNavigation(idImageViewImageNavigation);
         }
 
+
         libraryActivityView.getImageNavigation().setOnClickListener(new View.OnClickListener() {
 
             @Override
