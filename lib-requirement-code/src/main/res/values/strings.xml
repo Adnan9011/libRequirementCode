@@ -31,4 +31,22 @@
     <string name="jalali_month_9">دی</string>
     <string name="jalali_month_10">بهمن</string>
     <string name="jalali_month_11">اسفند</string>
+
+    <string name="hijri_month_0">محرم</string>
+    <string name="hijri_month_1">صفر</string>
+    <string name="hijri_month_2">ربیع الاول</string>
+
+    <string name="hijri_month_3">ربیع ثانی</string>
+    <string name="hijri_month_4">جمادی الاول</string>
+    <string name="hijri_month_5">جمادی الثانی</string>
+
+    <string name="hijri_month_6">رجب</string>
+    <string name="hijri_month_7">شعبان</string>
+    <string name="hijri_month_8">رمضان</string>
+
+    <string name="hijri_month_9">شوال</string>
+    <string name="hijri_month_10">ذی القعده</string>
+    <string name="hijri_month_11">ذی الحجه</string>
+
+
 </resources>

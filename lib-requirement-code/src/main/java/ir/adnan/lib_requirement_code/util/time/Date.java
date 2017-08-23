@@ -1,5 +1,8 @@
 package ir.adnan.lib_requirement_code.util.time;
 
+import ir.adnan.lib_requirement_code.R;
+import ir.adnan.lib_requirement_code.main.LibraryApplication;
+
 public class Date {
 	
 	private int year;
@@ -19,9 +22,20 @@ public class Date {
 		this.date = date;
 	}
 
-	private String monthNamePersian[] = { "فروردین", "اردیبهشت", "خرداد",
-			"تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن",
-			"اسفند" };
+	private String monthNamePersian[] = {
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_0),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_1),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_2),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_3),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_4),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_5),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_6),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_7),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_8),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_9),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_10),
+			LibraryApplication.getContext().getResources().getString(R.string.jalali_month_11)
+			};
 	private final String[] monthNameGeorgorian = { "January", "February",
 			"March", "April", "May", "June", "July", "August", "September",
 			"October", "November", "December" };
@@ -30,9 +44,20 @@ public class Date {
 			"Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
 			"Oct", "Nov", "Dec" };
 
-	private String monthNameHijri[] = { "محرم", "صفر", "ربیع الاول",
-			"ربیع ثانی", "جمادی الاول", "جمادی الثانی", "رجب", "شعبان",
-			"رمضان", "شوال", "ذی القعده", "ذی الحجه" };
+	private String monthNameHijri[] = {
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_0),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_1),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_2),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_3),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_4),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_5),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_6),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_7),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_8),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_9),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_10),
+			LibraryApplication.getContext().getResources().getString(R.string.hijri_month_11)
+	};
 
 	@Deprecated
 	public String toString() {

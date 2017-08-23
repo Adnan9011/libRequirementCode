@@ -12,9 +12,17 @@ import io.fabric.sdk.android.Fabric;
  */
 
 public class LibraryApplication extends Application {
+
+    private static Context THIS_APPLICATION = null;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        THIS_APPLICATION = this;
+    }
+
+    public static Context  getContext () {
+        return THIS_APPLICATION;
     }
 
     protected void launchFabricCrashlytics (Context context , boolean debuggable) {
@@ -25,4 +33,6 @@ public class LibraryApplication extends Application {
                 .build();
         Fabric.with(fabric);
     }
+
+
 }
