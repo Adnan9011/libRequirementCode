@@ -1,17 +1,9 @@
-package ir.adnan.lib_requirement_code.core;
-
-/**
- * Created by Adnan on 4/23/2017.
- */
-
-import android.content.Context;
+package ir.adnan.lib_requirement_code.util.time;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
-
-import ir.adnan.lib_requirement_code.R;
 
 public class JalaliCalendar extends Calendar {
     public static int gregorianDaysInMonth[] = {31, 28, 31, 30, 31,
@@ -112,8 +104,18 @@ public class JalaliCalendar extends Calendar {
         this(zone, Locale.getDefault());
     }
 
-    public JalaliCalendar(Locale aLocale) {
-        this(TimeZone.getDefault(), aLocale);
+//    public JalaliCalendar(Locale aLocale) {
+//        this(TimeZone.getDefault(), aLocale);
+//    }
+	
+	public JalaliCalendar(Locale aLocale) {
+        
+        Calendar calendar = Calendar.getInstance(aLocale);
+
+        YearMonthDate yearMonthDate = new YearMonthDate(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE));
+        yearMonthDate = gregorianToJalali(yearMonthDate);
+        super.set(yearMonthDate.getYear(), yearMonthDate.getMonth(), yearMonthDate.getDate());
+        complete();
     }
 
     public JalaliCalendar(TimeZone zone, Locale aLocale) {
@@ -124,7 +126,7 @@ public class JalaliCalendar extends Calendar {
 
         YearMonthDate yearMonthDate = new YearMonthDate(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE));
         yearMonthDate = gregorianToJalali(yearMonthDate);
-        set(yearMonthDate.getYear(), yearMonthDate.getMonth(), yearMonthDate.getDate());
+        super.set(yearMonthDate.getYear(), yearMonthDate.getMonth(), yearMonthDate.getDate());
         complete();
 
     }
@@ -174,10 +176,9 @@ public class JalaliCalendar extends Calendar {
         isTimeSeted = true;
     }
 
+	public static Date gregorianToJalali(Date gregorian) {
 
-    public static YearMonthDateHourMinute gregorianToJalali(YearMonthDateHourMinute gregorian) {
-
-        if (gregorian.getMonth() > 11 || gregorian.getMonth() < -11) {
+        if(gregorian.getMonth()>11 || gregorian.getMonth()<-11){
             throw new IllegalArgumentException();
         }
         int jalaliYear;
@@ -224,12 +225,12 @@ public class JalaliCalendar extends Calendar {
         jalaliMonth = i;
         jalaliDay = jalaliDayNo + 1;
 
-        return new YearMonthDateHourMinute(jalaliYear, jalaliMonth, jalaliDay , gregorian.getHour() , gregorian.getMinute());
+        return new Date(jalaliYear, jalaliMonth, jalaliDay);
     }
 
     public static YearMonthDate gregorianToJalali(YearMonthDate gregorian) {
 
-        if (gregorian.getMonth() > 11 || gregorian.getMonth() < -11) {
+        if(gregorian.getMonth()>11 || gregorian.getMonth()<-11){
             throw new IllegalArgumentException();
         }
         int jalaliYear;
@@ -279,9 +280,72 @@ public class JalaliCalendar extends Calendar {
         return new YearMonthDate(jalaliYear, jalaliMonth, jalaliDay);
     }
 
+	public static Date jalaliToGregorian(Date jal) {
+		Date jalali = new Date(jal.getYear(),jal.getMonth(),jal.getDate());
+        if(jalali.getMonth()>11 || jalali.getMonth()<-11){
+            throw new IllegalArgumentException();
+        }
+
+        int gregorianYear;
+        int gregorianMonth;
+        int gregorianDay;
+
+        int gregorianDayNo, jalaliDayNo;
+        int leap;
+
+        int i;
+        jalali.setYear(jalali.getYear() - 979);
+        jalali.setDate(jalali.getDate() - 1);
+
+        jalaliDayNo = 365 * jalali.getYear() + (int) (jalali.getYear() / 33) * 8
+                + (int) Math.floor(((jalali.getYear() % 33) + 3) / 4);
+        for (i = 0; i < jalali.getMonth(); ++i) {
+            jalaliDayNo += jalaliDaysInMonth[i];
+        }
+
+        jalaliDayNo += jalali.getDate();
+
+        gregorianDayNo = jalaliDayNo + 79;
+
+        gregorianYear = 1600 + 400 * (int) Math.floor(gregorianDayNo / 146097); /* 146097 = 365*400 + 400/4 - 400/100 + 400/400 */
+        gregorianDayNo = gregorianDayNo % 146097;
+
+        leap = 1;
+        if (gregorianDayNo >= 36525) /* 36525 = 365*100 + 100/4 */ {
+            gregorianDayNo--;
+            gregorianYear += 100 * (int) Math.floor(gregorianDayNo / 36524); /* 36524 = 365*100 + 100/4 - 100/100 */
+            gregorianDayNo = gregorianDayNo % 36524;
+
+            if (gregorianDayNo >= 365) {
+                gregorianDayNo++;
+            } else {
+                leap = 0;
+            }
+        }
+
+        gregorianYear += 4 * (int) Math.floor(gregorianDayNo / 1461); /* 1461 = 365*4 + 4/4 */
+        gregorianDayNo = gregorianDayNo % 1461;
+
+        if (gregorianDayNo >= 366) {
+            leap = 0;
+
+            gregorianDayNo--;
+            gregorianYear += (int) Math.floor(gregorianDayNo / 365);
+            gregorianDayNo = gregorianDayNo % 365;
+        }
+
+        for (i = 0; gregorianDayNo >= gregorianDaysInMonth[i] + ((i == 1 && leap == 1) ? i : 0); i++) {
+            gregorianDayNo -= gregorianDaysInMonth[i] + ((i == 1 && leap == 1) ? i : 0);
+        }
+        gregorianMonth = i;
+        gregorianDay = gregorianDayNo + 1;
+
+        return new Date(gregorianYear, gregorianMonth, gregorianDay);
+
+    }
 
     public static YearMonthDate jalaliToGregorian(YearMonthDate jalali) {
-        if (jalali.getMonth() > 11 || jalali.getMonth() < -11) {
+        if(jalali.getMonth()>11 || jalali.getMonth()<-11){
             throw new IllegalArgumentException();
         }
 
@@ -369,6 +433,13 @@ public class JalaliCalendar extends Calendar {
         return dayOfYear + 1;
     }
 
+	public static int dayOfWeek(Date yearMonthDate) {
+
+        Calendar cal = new GregorianCalendar(yearMonthDate.getYear(), yearMonthDate.getMonth(), yearMonthDate.getDate());
+        return cal.get(DAY_OF_WEEK);
+
+    }
+	
     public static int dayOfWeek(YearMonthDate yearMonthDate) {
 
         Calendar cal = new GregorianCalendar(yearMonthDate.getYear(), yearMonthDate.getMonth(), yearMonthDate.getDate());
@@ -821,76 +892,51 @@ public class JalaliCalendar extends Calendar {
     public int getLeastMaximum(int field) {
         return LEAST_MAX_VALUES[field];
     }
+    
+	public Date setCurrectMonth(int index) {
+		Date d = new Date();
+		int yearSh = this.get(JalaliCalendar.YEAR);
+		int monthSh = this.get(JalaliCalendar.MONTH) + 1;
+		int daySh = this.get(JalaliCalendar.DATE);
 
-    public static class YearMonthDateHourMinute {
+		if (index < 0) {
+			int div = (index / 12)*-1;
+			index %= 12;
+			monthSh += index;
+			if (monthSh <= 0) {
+				div++;
+				monthSh += 12;
+				yearSh -= div;
+			} else {
+				yearSh -= div;
+			}
 
-        private Context context;
-        private int year;
-        private int month;
-        private int date;
 
-        private int hour;
-        private int minute;
+		} else {
+			monthSh += index;
 
+			int div = monthSh / 12;
+			if (div > 0) {
+				if (monthSh % 12 == 0)
+					yearSh = yearSh + div - 1;
+				else
+					yearSh += div;
+			}
+			monthSh = monthSh % 12;
+			if (monthSh == 0) {
+				monthSh = 12;
+			}
+			
+		}
 
-        public YearMonthDateHourMinute(int year, int month, int date, int hour, int minute) {
+		daySh = 1;
 
-            this.year = year;
-            this.month = month;
-            this.date = date;
-            this.hour = hour;
-            this.minute = minute;
-        }
+		d.setYear(yearSh);
+		d.setMonth(monthSh - 1);
+		d.setDate(daySh);
+		return d;
+	}
 
-        public String toString () {
-            String minString = "";
-            if(minute<10)
-                minString = "0"+minute;
-            else
-                minString = minute+"";
-            return this.date + " " + month + " " + hour + ":" + minString;
-        }
-
-        public int getYear() {
-            return year;
-        }
-
-        public void setYear(int year) {
-            this.year = year;
-        }
-
-        public int getMonth() {
-            return month;
-        }
-
-        public void setMonth(int month) {
-            this.month = month;
-        }
-
-        public int getDate() {
-            return date;
-        }
-
-        public void setDate(int date) {
-            this.date = date;
-        }
-
-        public int getHour() {
-            return hour;
-        }
-
-        public void setHour(int hour) {
-            this.hour = hour;
-        }
-
-        public int getMinute() {
-            return minute;
-        }
-
-        public void setMinute(int minute) {
-            this.minute = minute;
-        }
-    }
     public static class YearMonthDate {
 
         public YearMonthDate(int year, int month, int date) {
@@ -932,3 +978,4 @@ public class JalaliCalendar extends Calendar {
         }
     }
 }
+
