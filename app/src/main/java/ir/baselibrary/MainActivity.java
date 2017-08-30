@@ -63,6 +63,15 @@ public class MainActivity extends LibraryActivity {
     }
 
     private void testStartTestActivity() {
-        startActivity(new Intent (THIS , MainMaterialRipple.class ));
+//        startActivity(new Intent (THIS , MainMaterialRipple.class ));
+
+        android.util.Log.e(TAG , "getViewModel Integer : "+getViewModelProviders(Integer.class , 123).compareTo(123));
+        android.util.Log.e(TAG , "getViewModel String : "+getViewModelProviders(String.class , "456").charAt(0));
+        android.util.Log.e(TAG , "getViewModel Double : "+getViewModelProviders(Double.class , 0.123));
+    }
+
+
+    public <T> T getViewModelProviders( Class<T> objectViewModel , T f) {
+        return objectViewModel.cast(f);
     }
 }

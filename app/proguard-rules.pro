@@ -58,6 +58,10 @@
    -renamesourcefileattribute SourceFile
    -keepattributes SourceFile,LineNumberTable
 
+   #ROOM
+   -dontwarn android.arch.util.paging.CountedDataSource
+   -dontwarn android.arch.persistence.room.paging.LimitOffsetDataSource
+
 -keepattributes *Annotation*
 -keepclassmembers class ** {
     @org.greenrobot.eventbus.Subscribe <methods>;
