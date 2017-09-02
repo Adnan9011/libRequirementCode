@@ -36,7 +36,6 @@ public class MainActivity extends LibraryActivity {
         launchFirebaseAnalytics(THIS);
         setView(THIS_ACTIVITY , ID_FRAGMENT , ID_TOOLBAR , ID_TOOLBAR_TITLE , ID_IMAGE_NAVIGATION , ID_TOOLBAR_IMAGE
                                 , ID_DRAWER , ID_RETRY_NETWORK , ID_COORDINATE_LAYOUT);
-
         /*
          Write Your Code
          */

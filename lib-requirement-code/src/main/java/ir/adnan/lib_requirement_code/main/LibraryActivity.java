@@ -104,7 +104,6 @@ public class LibraryActivity extends AppCompatActivity {
             libraryActivityView.setImageViewimageNavigation(idImageViewImageNavigation);
         }
 
-
         libraryActivityView.getImageNavigation().setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -119,7 +118,6 @@ public class LibraryActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         //Retofit
         libraryActivityView.setRetryNetwork(idRetryNetwork);
@@ -146,9 +144,7 @@ public class LibraryActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.parseColor(colorString));
         }
     }
-
     //
-
     protected void setBackButtonWithListener() {
         if (libraryActivityView.getToolbarImage() != null) {
             libraryActivityView.getToolbarImage().setBackgroundResource(R.drawable.nav_back);
