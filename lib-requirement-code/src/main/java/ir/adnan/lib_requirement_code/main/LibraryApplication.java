@@ -33,5 +33,4 @@ public class LibraryApplication extends Application {
         Fabric.with(fabric);
     }
 
-
 }
