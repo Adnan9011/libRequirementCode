@@ -69,7 +69,6 @@ public class MainActivity extends LibraryActivity {
         android.util.Log.e(TAG , "getViewModel Double : "+getViewModelProviders(Double.class , 0.123));
     }
 
-
     public <T> T getViewModelProviders( Class<T> objectViewModel , T f) {
         return objectViewModel.cast(f);
     }

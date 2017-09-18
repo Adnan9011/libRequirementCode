@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -18,7 +19,7 @@ android {
     buildTypes {
         debug {
             ext.enableCrashlytics = false
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
@@ -50,4 +51,5 @@ dependencies {
     compile project(':lib-requirement-code')
     //    compile 'ir.adnan9011.library:lib-requirement-code:0.0.7'
     compile project(':lib-requirement-mvvm')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

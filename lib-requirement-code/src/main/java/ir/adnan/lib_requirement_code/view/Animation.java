@@ -32,6 +32,15 @@ public class Animation {
                 .playOn(view);
     }
 
+    public static void animation(Techniques techniques, int durationSecound,int delaySecound, View view , int repeat , int repeatMode) {
+        YoYo.with(techniques)
+                .duration(durationSecound * 1000)
+                .repeat(repeat)
+                .repeatMode(repeatMode)
+                .delay(delaySecound * 1000)
+                .playOn(view);
+    }
+
     //
     public static void fadeInfadeOutInfinite(View view ) {
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(view, View.ALPHA, 1,0);

@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -84,8 +87,14 @@ dependencies {
     compile 'jp.wasabeef:recyclerview-animators:2.2.5'
     //Ripple
     compile 'com.balysv:material-ripple:1.0.2'
-
-
+//    //Kotlin
+//    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+//
+//    //Dogger
+//    compile 'com.google.dagger:dagger-android:2.11'
+//    compile 'com.google.dagger:dagger-android-support:2.11'
+//    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+//    kapt 'com.google.dagger:dagger-compiler:2.11'
 }
 apply plugin: 'com.google.gms.google-services'
 

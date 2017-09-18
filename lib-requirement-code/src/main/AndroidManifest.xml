@@ -1,58 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     package="ir.adnan.lib_requirement_code">
 
     <uses-sdk
-        tools:overrideLibrary="co.ronash.pushe"
-
         android:minSdkVersion="15"
         android:targetSdkVersion="22"
-        />
-
-    <application android:allowBackup="true" android:label="@string/app_name"
-        android:supportsRtl="false">
-
-        <activity
-            android:name=".pushe.activity.ClickNotificationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            />
-
-        <!-- Notification -->
-        <receiver android:name="ir.adnan.lib_requirement_code.pushe.broadcast.SendSms" />
-
-        <!-- PUSHE -->
-        <service
-            android:name="ir.adnan.lib_requirement_code.pushe.service.ImplementPusheListener"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="co.ronash.pushe.RECEIVE" />
-            </intent-filter>
-        </service>
-
-        <service android:name=".pushe.service.DownloadService" />
-
-        <!-- Dialog -->
-        <activity
-            android:name=".pushe.dialog.DialogRegisterInfo"
-
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Translucent" />
-
-        <activity
-            android:name=".pushe.dialog.DialogImageNotification"
-
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Translucent" />
-
-        <activity
-            android:name=".pushe.dialog.DialogImageDownloadNotification"
-
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Translucent" />
-
-    </application>
+        tools:overrideLibrary="co.ronash.pushe" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -60,5 +14,46 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Alton -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="false">
+        <activity
+            android:name=".pushe.activity.ClickNotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+
+        <!-- Notification -->
+        <receiver android:name=".pushe.broadcast.SendSms" />
+
+        <!-- PUSHE -->
+        <service
+            android:name=".pushe.service.ImplementPusheListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="co.ronash.pushe.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service android:name=".pushe.service.DownloadService" />
+
+        <!-- Dialog -->
+        <activity
+            android:name=".pushe.dialog.DialogRegisterInfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".pushe.dialog.DialogImageNotification"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".pushe.dialog.DialogImageDownloadNotification"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity android:name=".view.MainActivity"></activity>
+    </application>
+
 </manifest>
