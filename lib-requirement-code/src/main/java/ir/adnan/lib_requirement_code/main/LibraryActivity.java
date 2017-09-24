@@ -52,7 +52,7 @@ public class LibraryActivity extends AppCompatActivity {
     private long dialogLoadingTimeBegin;
     private boolean isLoadedLoadingDialog = false;
 
-    private static boolean isActivityLive = false;
+    public static boolean isActivityLive = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
