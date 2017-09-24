@@ -52,9 +52,27 @@ public class LibraryActivity extends AppCompatActivity {
     private long dialogLoadingTimeBegin;
     private boolean isLoadedLoadingDialog = false;
 
+    private static boolean isActivityLive = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        isActivityLive = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        isActivityLive = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        isActivityLive = false;
     }
 
     protected void launchPushe(Context context) {
@@ -379,7 +397,6 @@ public class LibraryActivity extends AppCompatActivity {
             }, Finals.WAIT_DELAY_SHOWING_PROGRESS_DIALOG - remindDialogLoadingTime);
         }
     }
-
 
     @Override
     public void onBackPressed() {
