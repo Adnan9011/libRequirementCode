@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
@@ -51,5 +52,9 @@ dependencies {
     compile project(':lib-requirement-code')
     //    compile 'ir.adnan9011.library:lib-requirement-code:0.0.7'
     compile project(':lib-requirement-mvvm')
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
 }
