@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
@@ -37,4 +39,13 @@ dependencies {
     compile 'android.arch.persistence.room:runtime:1.0.0-alpha8'
     compile 'android.arch.lifecycle:extensions:1.0.0-alpha8'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-alpha8'
+
+    //Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+//    //Dogger
+    compile 'com.google.dagger:dagger-android:2.11'
+    compile 'com.google.dagger:dagger-android-support:2.11'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
 }
